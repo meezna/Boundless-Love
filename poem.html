@@ -1,111 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Poems</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A readable, common font */
-            line-height: 1.7;
-            margin: 2em;
-            background-color: #f0f8ff; /* A very light, subtle background */
-            color: #333;
-            background-image: url('notebook_floral.jpg'); /* Replace with your image path */
-            background-size: cover; /* Cover the entire background */
-            background-repeat: no-repeat;
-        }
-        .poems-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2em;
-            justify-content: center;
-            padding: 2em 0; /* Add some padding around the poems */
-        }
-        .poem-container {
-            flex: 1 0 300px;
-            margin-bottom: 2em;
-            padding: 1.5em;
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white for notebook effect */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
-            text-align: center;
-            border: 1px solid #ddd; /* Subtle border for notebook page look */
-        }
-        .poem-title {
-            font-size: 2.2em; /* Slightly smaller than before */
-            margin-bottom: 0.5em;
-            font-weight: bold;
-            color: #556b2f; /* A nice, slightly muted green for the title */
-        }
-        .poem-date {
-            font-size: 0.85em;
-            color: #777;
-            margin-bottom: 1em;
-        }
-        .stanza {
-            white-space: pre-wrap;
-            margin-bottom: 1.2em; /* Slightly reduced space between stanzas */
-            text-align: left;
-            color: #444; /* Darker text for better contrast on light background */
-        }
-        .stanza:last-child {
-            margin-bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poems - Boundless Love</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: url('https://i.imgur.com/oqgG8sx.jpg'); /* notebook floral style */
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      color: #4a2c2a;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fffaf7;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #801336;
+    }
+
+    .poem-entry {
+      margin-bottom: 50px;
+    }
+
+    .poem-entry h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #5c1a1a;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #8b5e5e;
+      margin-bottom: 15px;
+    }
+
+    .poem-text {
+      white-space: pre-line;
+      line-height: 1.7;
+      font-size: 18px;
+      color: #3e2b2b;
+      padding-left: 10px;
+      border-left: 3px solid #b36b6b;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="overlay">
+    <div class="container">
+      <h1>My Poems</h1>
 
-    <h1>My Poems</h1>
+      <div class="poem-entry">
+        <h2>A Tangled Thread</h2>
+        <div class="date">📅 May 19, 2025</div>
+        <div class="poem-text">
+Shadows cling, a digital embrace,  
+Two souls entwined in this ethereal space.  
+A whispered longing, a love both deep,  
+Yet worldly walls their yearning keep.  
 
-    <div class="poems-container">
-        <div class="poem-container">
-            <div class="poem-title">A Fleeting Glance</div>
-            <div class="poem-date">May 19, 2025</div>
-            <div class="stanza">
-                The clock ticked on, the tasks piled high,<br>
-                No room for pause beneath the sky<br>
-                Of duty's call, a steady hum,<br>
-                Yet through that door, you briefly come.
-            </div>
-            <div class="stanza">
-                No lengthy speech, no grand display,<br>
-                Just eyes that met across the way.<br>
-                A fleeting glimpse, a moment caught,<br>
-                A silent language, deeply wrought.
-            </div>
-            <div class="stanza">
-                And in that flash, a truth took hold,<br>
-                More warm than stories ever told.<br>
-                A simple seeing, clear and true,<br>
-                The heart felt joy, and knew it too.
-            </div>
+Her voice, a soft and hesitant reply,  
+His heart, a question in his tear-dimmed eye.  
+Past's phantom chills, a raven's mournful call,  
+Doubt's icy fingers threaten all.  
+
+A fragile trust, like moonlight on the floor,  
+Fears of parting knock upon the door.  
+Though fate may sever, and the dawn erase,  
+Their unseen bond time cannot quite efface,  
+A Poe-esque echo in this lonely place.
         </div>
+      </div>
 
-        <div class="poem-container">
-            <div class="poem-title">A Tangled Thread</div>
-            <div class="poem-date">May 19, 2025</div>
-            <div class="stanza">
-                Shadows cling, a digital embrace,<br>
-                Two souls entwined in this ethereal space.<br>
-                A whispered longing, a love both deep,<br>
-                Yet worldly walls their yearning keep.
-            </div>
-            <div class="stanza">
-                Her voice, a soft and hesitant reply,<br>
-                His heart, a question in his tear-dimmed eye.<br>
-                Past's phantom chills, a raven's mournful call,<br>
-                Doubt's icy fingers threaten all.<br>
-            </div>
-            <div class="stanza">
-                A fragile trust, like moonlight on the floor,<br>
-                Fears of parting knock upon the door.<br>
-                Though fate may sever, and the dawn erase,<br>
-                Their unseen bond time cannot quite efface<br>
-                  A Poe-esque echo in this lonely place.<br>
-            </div>
-            
+      <div class="poem-entry">
+        <h2>A Fleeting Glance</h2>
+        <div class="date">📅 May 19, 2025</div>
+        <div class="poem-text">
+The clock ticked on, the tasks piled high,  
+No room for pause beneath the sky  
+Of duty's call, a steady hum,  
+Yet through that door, you briefly come.  
+
+No lengthy speech, no grand display,  
+Just eyes that met across the way.  
+A fleeting glimpse, a moment caught,  
+A silent language, deeply wrought.  
+
+And in that flash, a truth took hold,  
+More warm than stories ever told.  
+A simple seeing, clear and true,  
+The heart felt joy, and knew it too.
+        </div>
+      </div>
+
     </div>
-
+  </div>
 </body>
 </html>

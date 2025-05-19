@@ -6,41 +6,48 @@
     <title>My Poems</title>
     <style>
         body {
-            font-family: sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A readable, common font */
+            line-height: 1.7;
             margin: 2em;
-            background-color: #f4f4f4; /* Keep the background color */
+            background-color: #f0f8ff; /* A very light, subtle background */
             color: #333;
+            background-image: url('notebook_floral.jpg'); /* Replace with your image path */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat;
         }
         .poems-container {
-            display: flex; /* Enable flexbox for side-by-side layout */
-            flex-wrap: wrap; /* Allow poems to wrap to the next line on smaller screens */
-            gap: 2em; /* Space between the poem containers */
-            justify-content: center; /* Center the poems horizontally */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+            padding: 2em 0; /* Add some padding around the poems */
         }
         .poem-container {
-            flex: 1 0 300px; /* Distribute space, initial width of 300px */
-            margin-bottom: 2em; /* Space below each poem container */
+            flex: 1 0 300px;
+            margin-bottom: 2em;
             padding: 1.5em;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white for notebook effect */
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Center title and date */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+            text-align: center;
+            border: 1px solid #ddd; /* Subtle border for notebook page look */
         }
         .poem-title {
-            font-size: 2.5em;
+            font-size: 2.2em; /* Slightly smaller than before */
             margin-bottom: 0.5em;
             font-weight: bold;
+            color: #556b2f; /* A nice, slightly muted green for the title */
         }
         .poem-date {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #777;
             margin-bottom: 1em;
         }
         .stanza {
             white-space: pre-wrap;
-            margin-bottom: 1em;
-            text-align: left; /* Align poem text to the left within the container */
+            margin-bottom: 1.2em; /* Slightly reduced space between stanzas */
+            text-align: left;
+            color: #444; /* Darker text for better contrast on light background */
         }
         .stanza:last-child {
             margin-bottom: 0;
@@ -59,42 +66,45 @@
                 The clock ticked on, the tasks piled high,<br>
                 No room for pause beneath the sky<br>
                 Of duty's call, a steady hum,<br>
-                Yet through that door, you briefly come.<br><br>
+                Yet through that door, you briefly come.
+            </div>
+            <div class="stanza">
                 No lengthy speech, no grand display,<br>
                 Just eyes that met across the way.<br>
                 A fleeting glimpse, a moment caught,<br>
-                A silent language, deeply wrought.<br><br>
+                A silent language, deeply wrought.
+            </div>
+            <div class="stanza">
                 And in that flash, a truth took hold,<br>
                 More warm than stories ever told.<br>
                 A simple seeing, clear and true,<br>
-                The heart felt joy, and knew it too.<br>
+                The heart felt joy, and knew it too.
             </div>
         </div>
 
         <div class="poem-container">
-            <div class="poem-title">A Tangled thread</div>
+            <div class="poem-title">A Tangled Thread</div>
             <div class="poem-date">May 19, 2025</div>
             <div class="stanza">
-               <p>
-                   Shadows cling, a digital embrace,<br>
-                   Two souls entwined in this ethereal space.<br>
-                   A whispered longing, a love both deep,<br>
-                   Yet wordly walls their yearning keep.<br>
-               </p>
-                <p>
-                    Her voice, a soft and hesistant reply,<br>
-                    his heart, a question in his tear-dimmed eye.<br>
-                    Past's phantom chills, a raven's mournfull call,<br>
-                    Doubt's icy fingers threaten all.<br>
-                </p>
-                <p>A fragile trust, like moonlight on the floor,<br>
-                    fears of parting knock upon the door.<br>
-                    Though fate may sever, and the dawn erase,<br>
-                    their unseen bond time cannot quite efface,<br>
-                    A poe-esque echo in this lonely place.<br>
-                </p>
+                Shadows cling, a digital embrace,<br>
+                Two souls entwined in this ethereal space.<br>
+                A whispered longing, a love both deep,<br>
+                Yet worldly walls their yearning keep.
             </div>
-        </div>
+            <div class="stanza">
+                Her voice, a soft and hesitant reply,<br>
+                His heart, a question in his tear-dimmed eye.<br>
+                Past's phantom chills, a raven's mournful call,<br>
+                Doubt's icy fingers threaten all.<br>
+            </div>
+            <div class="stanza">
+                A fragile trust, like moonlight on the floor,<br>
+                Fears of parting knock upon the door.<br>
+                Though fate may sever, and the dawn erase,<br>
+                Their unseen bond time cannot quite efface<br>
+                  A Poe-esque echo in this lonely place.<br>
+            </div>
+            
     </div>
 
 </body>

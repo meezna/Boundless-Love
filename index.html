@@ -8,32 +8,48 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background: #fff8f3;
       color: #333;
+      /* Floral notebook background with pattern */
+      background-color: #f9f4e8;
+      background-image:
+        linear-gradient(#f5e9d7 1px, transparent 1px),
+        linear-gradient(90deg, #f5e9d7 1px, transparent 1px),
+        radial-gradient(#ffcad4 2px, transparent 2px);
+      background-size:
+        20px 20px,
+        20px 20px,
+        60px 60px;
+      background-position:
+        0 0,
+        0 0,
+        30px 30px;
     }
-
-    .navbar {
+    .categories {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #ffe6ee;
-      padding: 20px 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex-direction: column; /* Make categories vertical */
+      align-items: center; /* Center items horizontally */
+      gap: 10px; /* Adjust spacing between categories */
+      margin: 25px auto;
+      max-width: 150px; /* Limit width of the vertical list */
     }
 
-    .navbar a {
+    .categories a {
       text-decoration: none;
       color: white;
       background-color: #ff84a2;
-      padding: 12px 20px;
-      margin: 8px;
-      border-radius: 8px;
+      padding: 10px 20px; /* Adjust padding for vertical layout */
+      border-radius: 20px;
       font-size: 16px;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      width: 100%; /* Make each link take full width of container */
+      text-align: center; /* Center text within the link */
+      box-sizing: border-box; /* Include padding in the element's total width and height */
     }
 
-    .navbar a:hover {
+    .categories a:hover {
       background-color: #d66485;
+      transform: scale(1.05);
     }
 
     .main-content {
@@ -44,12 +60,29 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       text-align: center;
+      border: 1px solid #e0d8cc;
+      position: relative;
+      display: flex; /* Use flexbox for layout */
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center items horizontally */
+    }
+
+    .main-content::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 20px;
+      height: calc(100% - 40px);
+      width: 3px;
+      background-color: #ffb6c1;
+      border-radius: 3px;
     }
 
     h1 {
       font-size: 34px;
       color: #4b2c3f;
       margin-bottom: 10px;
+      text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
     }
 
     p.intro {
@@ -71,6 +104,7 @@
       text-align: center;
       color: #4b2c3f;
       margin-bottom: 20px;
+      font-family: 'Georgia', serif;
     }
 
     blockquote {
@@ -84,33 +118,42 @@
     }
 
     @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
+      .categories {
+        flex-direction: row; /* Revert to horizontal on smaller screens */
+        justify-content: center;
         align-items: center;
+        max-width: 100%;
       }
-
+      .categories a {
+        width: auto;
+      }
       .main-content {
         margin: 20px;
         padding: 25px 20px;
+      }
+
+      .main-content::before {
+        left: 0;
+        height: 3px;
+        width: calc(100% - 40px);
+        top: -10px;
       }
     }
   </style>
 </head>
 <body>
-
-  <div class="navbar">
-    <a href="poem.html">Poem</a>
-    <a href="shayari.html">Shayari</a>
-    <a href="ghazal.html">Ghazal</a>
-    <a href="journal.html">Daily Journal</a>
-  </div>
-
   <div class="main-content">
     <h1>Welcome to Manju's Daily Blog</h1>
     <p class="intro">A heartfelt space for emotions, poetry, and reflections. I write to feel, to heal, and to remember.</p>
 
-    <blockquote>“Some feelings are too deep for words, so I turn them into poems.”</blockquote>
+    <div class="categories">
+      <a href="poem.html">Poem</a>
+      <a href="shayari.html">Shayari</a>
+      <a href="ghazal.html">Ghazal</a>
+      <a href="journal.html">Daily Journal</a>
+    </div>
 
+    <blockquote>"Some feelings are too deep for words, so I turn them into poems."</blockquote>
     <div class="full-intro">
       <h2>Welcome to Our Journey</h2>
       <p>Hello and welcome to this special corner of the internet. I am Meezna's best friend, and this blog is my tribute to her remarkable spirit and the extraordinary bond we share.</p>

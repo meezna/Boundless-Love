@@ -6,51 +6,55 @@
   <title>Manju's Daily Blogs</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #f0f4f8, #ffffff);
-      color: #333;
+      font-family: 'Georgia', serif;
       display: flex;
       min-height: 100vh;
+      background: url('https://i.imgur.com/mQQyohH.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
     }
 
     .sidebar {
-      width: 260px;
-      background-color: #e8f1f8;
+      width: 240px;
+      background: rgba(255, 255, 255, 0.85);
       padding: 40px 20px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: sticky;
+      top: 0;
+      height: 100vh;
     }
 
     .sidebar h2 {
       font-size: 20px;
-      color: #2c3e50;
+      color: #4b2c3f;
       margin-bottom: 30px;
     }
 
     .sidebar a {
       text-decoration: none;
-      background-color: #3498db;
+      background-color: #ff84a2;
       color: white;
-      padding: 16px 28px;
-      border-radius: 10px;
-      font-size: 18px;
-      margin-bottom: 18px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 15px;
       width: 100%;
       text-align: center;
-      transition: 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     .sidebar a:hover {
-      background-color: #21618c;
+      background-color: #d66485;
     }
 
     .main-content {
       flex: 1;
       padding: 50px 40px;
+      background-color: rgba(255, 255, 255, 0.88);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -61,15 +65,15 @@
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #3498db;
+      border: 4px solid #ff84a2;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-      color: #2c3e50;
+      font-size: 36px;
+      color: #4b2c3f;
       text-align: center;
+      margin-bottom: 10px;
     }
 
     p.intro {
@@ -86,20 +90,21 @@
       line-height: 1.7;
       color: #444;
       margin-bottom: 40px;
+      text-align: justify;
     }
 
     .full-intro h2 {
       text-align: center;
-      color: #2c3e50;
+      color: #4b2c3f;
       margin-bottom: 20px;
     }
 
     blockquote {
       font-style: italic;
       color: #666;
-      background: #f9f9f9;
+      background: #ffe6ee;
       padding: 20px;
-      border-left: 5px solid #3498db;
+      border-left: 5px solid #ff84a2;
       margin: 30px auto;
       max-width: 700px;
     }
@@ -111,9 +116,12 @@
 
       .sidebar {
         width: 100%;
+        height: auto;
+        position: static;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 20px;
         box-shadow: none;
       }
 
@@ -135,10 +143,10 @@
 <body>
   <div class="sidebar">
     <h2>Categories</h2>
-    <a href="poem.html">Poem</a>
-    <a href="shayari.html">Shayari</a>
-    <a href="ghazal.html">Ghazal</a>
-    <a href="journal.html">Daily Journal</a>
+    <a href="poem.html">📜 Poem</a>
+    <a href="shayari.html">📝 Shayari</a>
+    <a href="ghazal.html">🎶 Ghazal</a>
+    <a href="journal.html">📖 Daily Journal</a>
   </div>
 
   <div class="main-content">

@@ -8,61 +8,48 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      display: flex;
-      min-height: 100vh;
-      background: url('https://i.imgur.com/mQQyohH.jpg') no-repeat center center fixed;
+      background: url('https://i.imgur.com/azZixrD.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
     }
 
-    .sidebar {
-      width: 240px;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 40px 20px;
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+    .navbar {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      height: 100vh;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .sidebar h2 {
-      font-size: 20px;
-      color: #4b2c3f;
-      margin-bottom: 30px;
-    }
-
-    .sidebar a {
+    .navbar a {
       text-decoration: none;
-      background-color: #ff84a2;
       color: white;
-      padding: 14px 24px;
+      background-color: #ff84a2;
+      padding: 12px 20px;
+      margin: 8px;
       border-radius: 8px;
       font-size: 16px;
-      margin-bottom: 15px;
-      width: 100%;
-      text-align: center;
-      transition: background 0.3s ease;
+      transition: 0.3s ease;
     }
 
-    .sidebar a:hover {
+    .navbar a:hover {
       background-color: #d66485;
     }
 
     .main-content {
-      flex: 1;
-      padding: 50px 40px;
-      background-color: rgba(255, 255, 255, 0.88);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      max-width: 850px;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
     }
 
     img.profile {
-      width: 140px;
-      height: 140px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #ff84a2;
@@ -70,27 +57,24 @@
     }
 
     h1 {
-      font-size: 36px;
+      font-size: 34px;
       color: #4b2c3f;
-      text-align: center;
       margin-bottom: 10px;
     }
 
     p.intro {
-      font-size: 18px;
+      font-size: 17px;
       color: #555;
-      text-align: center;
       max-width: 700px;
-      margin-bottom: 30px;
+      margin: 0 auto 30px auto;
     }
 
     .full-intro {
-      max-width: 800px;
-      font-size: 17px;
-      line-height: 1.7;
-      color: #444;
-      margin-bottom: 40px;
       text-align: justify;
+      font-size: 16.5px;
+      color: #444;
+      line-height: 1.7;
+      margin-top: 40px;
     }
 
     .full-intro h2 {
@@ -106,43 +90,25 @@
       padding: 20px;
       border-left: 5px solid #ff84a2;
       margin: 30px auto;
-      max-width: 700px;
+      max-width: 650px;
     }
 
     @media (max-width: 768px) {
-      body {
+      .navbar {
         flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px;
-        box-shadow: none;
-      }
-
-      .sidebar h2 {
-        display: none;
-      }
-
-      .sidebar a {
-        margin: 10px;
-        width: auto;
+        align-items: center;
       }
 
       .main-content {
-        padding: 30px 20px;
+        margin: 20px;
+        padding: 25px 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Categories</h2>
+
+  <div class="navbar">
     <a href="poem.html">📜 Poem</a>
     <a href="shayari.html">📝 Shayari</a>
     <a href="ghazal.html">🎶 Ghazal</a>
@@ -154,6 +120,8 @@
     <h1>Welcome to Manju's Daily Blog</h1>
     <p class="intro">A heartfelt space for emotions, poetry, and reflections. I write to feel, to heal, and to remember.</p>
 
+    <blockquote>“Some feelings are too deep for words, so I turn them into poems.”</blockquote>
+
     <div class="full-intro">
       <h2>Welcome to Our Journey</h2>
       <p>Hello and welcome to this special corner of the internet. I am Meezna's best friend, and this blog is my tribute to her remarkable spirit and the extraordinary bond we share.</p>
@@ -163,8 +131,6 @@
       <p>To Meezna, whose strength continually amazes me: Your story deserves to be honored, and your progress celebrated. May these words reflect even a fraction of the light you bring into this world.</p>
       <p>To readers: Thank you for visiting this tribute to an extraordinary soul. Your presence here honors her journey. Comments and kind feedback are always appreciated, as they help us build this community of support around someone truly special.</p>
     </div>
-
-    <blockquote>“Some feelings are too deep for words, so I turn them into poems.”</blockquote>
   </div>
 </body>
 </html>

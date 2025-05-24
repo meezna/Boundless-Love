@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shayari - Manju's Daily Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: #333;
+      background-color: #f9f4e8;
+      background-image:
+        linear-gradient(#f5e9d7 1px, transparent 1px),
+        linear-gradient(90deg, #f5e9d7 1px, transparent 1px),
+        radial-gradient(#ffcad4 2px, transparent 2px);
+      background-size:
+        20px 20px,
+        20px 20px,
+        60px 60px;
+      background-position:
+        0 0,
+        0 0,
+        30px 30px;
+    }
+
+    .main-content {
+      max-width: 850px;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid #e0d8cc;
+      position: relative;
+    }
+
+    .main-content::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 20px;
+      height: calc(100% - 40px);
+      width: 3px;
+      background-color: #ffb6c1;
+      border-radius: 3px;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #4b2c3f;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .shayari-entry {
+      background: #fff2f7;
+      border-left: 5px solid #ff84a2;
+      padding: 20px 25px;
+      margin: 25px auto;
+      text-align: left;
+      font-size: 18px;
+      color: #555;
+      line-height: 1.7;
+      border-radius: 10px;
+      max-width: 700px;
+    }
+
+    .shayari-entry p {
+      margin: 0;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: white;
+      background-color: #ff84a2;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    a.back-link:hover {
+      background-color: #d66485;
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <h1>Shayari Collection</h1>
+
+    <div class="shayari-entry">
+      <p>तिमी बिना यो मन सुनसान,</p>
+      <p>भ्रमर बिना फूल जस्तै शून्य संसार।</p>
+      <p>तिमी बिना दिन, तिमी बिना रात,</p>
+      <p>तिमी बिना यो जीवन नै अधूरो छ साथ।</p>
+    </div>
+
+    <div class="shayari-entry">
+      <p>जीवनको पाना पल्टिदा,</p>
+      <p>कुनै अधुरा कविता भेटिन्छ।</p>
+      <p>तिमी हाँस्दा फूल फुल्छ,</p>
+      <p>तिमी रुँदा मन भित्र पीडा झल्किन्छ।</p>
+    </div>
+
+    <div class="shayari-entry">
+      <p>सपना देख्न छाडिदिएँ,</p>
+      <p>तर तिमी सम्झन छाड्न सकिन।</p>
+      <p>जिन्दगीको हर घडी,</p>
+      <p>तिमीमै हराउन चाहन्छु म।</p>
+    </div>
+
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </div>
+</body>
+</html>

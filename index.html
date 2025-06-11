@@ -3,71 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boundless Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <title>Daily Journal — Boundless Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Handlee&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      padding: 30px 20px;
+      font-family: 'Handlee', cursive;
+      background: #fff0f5;
       color: #333;
-      animation: fadeIn 2s ease;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fffafc;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h1 {
-      font-size: 3em;
-      margin: 0;
+      text-align: center;
+      font-family: 'Quicksand', sans-serif;
+      margin-bottom: 20px;
     }
 
-    p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #555;
+    .entry {
+      margin-bottom: 30px;
     }
 
-    a.button {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 12px 28px;
-      background-color: #f9c5d1;
-      color: #333;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+    .entry-date {
+      font-size: 0.95em;
+      color: #999;
     }
 
-    a.button:hover {
-      background-color: #f4a1b2;
-      transform: scale(1.05);
+    hr {
+      border: none;
+      border-top: 1px dashed #ccc;
+      margin: 30px 0;
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
+      text-align: center;
       font-size: 0.85em;
-      color: #888;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      color: #aaa;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <h1>Boundless Love</h1>
-  <p>a journal of silent promises, deep connection, and lasting companionship</p>
+  <div class="container">
+    <h1>📅 Daily Journal</h1>
 
-  <a href="journal.html" class="button">📓 Read the Journal</a>
+    <div class="entry">
+      <div class="entry-date">June 11, 2025</div>
+      <p>
+        I said I’ll tell her tomorrow… that I knew something not from her lips, but from the shadows.<br>
+        His nickname is Shadow. She didn’t tell me. I found it myself. That made me smile.<br>
+        Maybe that’s what this bond is — reading what’s unsaid, knowing without asking.
+      </p>
+    </div>
 
-  <footer>© 2025 Boundless Love | For Meezna — the soul behind every word.</footer>
+    <hr>
+
+    <div class="entry">
+      <div class="entry-date">June 10, 2025</div>
+      <p>
+        She called during her hospital duty. I was in the library. <br>
+        She asked, “How much do you miss me?” I wanted to say: <br>
+        “Even these pages feel empty without you in them.” But I stayed quiet. <br>
+        Because some truths are too soft to be spoken — they live between breaths.
+      </p>
+    </div>
+
+    <!-- Add more entries below following the same format -->
+
+    <footer>© 2025 Boundless Love — A Journal of Emotional Truths</footer>
+  </div>
 </body>
 </html>

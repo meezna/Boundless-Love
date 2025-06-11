@@ -57,12 +57,21 @@
       background-color: #ff91b3;
       border-radius: 30px;
       font-family: 'Quicksand', sans-serif;
+      font-size: 1.1em;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .button:hover {
       background-color: #f3689c;
       transform: scale(1.05);
+    }
+
+    /* 📱 Mobile styling for bigger buttons */
+    @media screen and (max-width: 600px) {
+      .button {
+        padding: 16px 28px;
+        font-size: 1.3em;
+      }
     }
 
     footer {

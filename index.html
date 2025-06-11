@@ -2,144 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Manju's Daily Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boundless Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
-      color: #333;
-      background-color: #f9f4e8;
-      background-image:
-        linear-gradient(#f5e9d7 1px, transparent 1px),
-        linear-gradient(90deg, #f5e9d7 1px, transparent 1px),
-        radial-gradient(#ffcad4 2px, transparent 2px);
-      background-size:
-        20px 20px,
-        20px 20px,
-        60px 60px;
-      background-position:
-        0 0,
-        0 0,
-        30px 30px;
-    }
-
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin: 30px auto;
-      max-width: 1000px;
-    }
-
-    .categories a {
-      text-decoration: none;
-      color: white;
-      background-color: #ff84a2;
-      padding: 14px 30px;
-      border-radius: 24px;
-      font-size: 18px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-      box-sizing: border-box;
-    }
-
-    .categories a:hover {
-      background-color: #d66485;
-      transform: scale(1.08);
-    }
-
-    .main-content {
-      max-width: 850px;
-      margin: 40px auto;
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      border: 1px solid #e0d8cc;
-      position: relative;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    .main-content::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 20px;
-      height: calc(100% - 40px);
-      width: 3px;
-      background-color: #ffb6c1;
-      border-radius: 3px;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      color: #333;
+      animation: fadeIn 2s ease;
     }
 
     h1 {
-      font-size: 34px;
-      color: #4b2c3f;
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+      font-size: 3em;
+      margin: 0;
     }
 
-    p.intro {
-      font-size: 17px;
+    p {
+      font-size: 1.2em;
+      margin-top: 10px;
       color: #555;
-      max-width: 700px;
-      margin: 0 auto 30px auto;
     }
 
-    .full-intro {
-      text-align: justify;
-      font-size: 16.5px;
-      color: #444;
-      line-height: 1.7;
-      margin-top: 40px;
+    a.button {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #f9c5d1;
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    .full-intro h2 {
-      text-align: center;
-      color: #4b2c3f;
-      margin-bottom: 20px;
-      font-family: 'Georgia', serif;
+    a.button:hover {
+      background-color: #f4a1b2;
+      transform: scale(1.05);
     }
 
-    blockquote {
-      font-style: italic;
-      color: #666;
-      background: #ffe6ee;
-      padding: 20px;
-      border-left: 5px solid #ff84a2;
-      margin: 30px auto;
-      max-width: 650px;
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.85em;
+      color: #888;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="main-content">
-    <h1>Welcome to Manju's Daily Blog</h1>
-    <p class="intro">A heartfelt space for emotions, poetry, and reflections. I write to feel, to heal, and to remember.</p>
+  <h1>Boundless Love</h1>
+  <p>a journal of silent promises, deep connection, and lasting companionship</p>
 
-    <div class="categories">
-      <a href="poem.html">Poem</a>
-      <a href="shayari.html">Shayari</a>
-      <a href="ghazal.html">Ghazal</a>
-      <a href="journal.html">Daily Journal</a>
-      <a href="shabda.html">💭 Shabda Manthan</a>
-    </div>
+  <a href="journal.html" class="button">📓 Read the Journal</a>
 
-    <blockquote>"Some feelings are too deep for words, so I turn them into poems."</blockquote>
-    <div class="full-intro">
-      <h2>Welcome to Our Journey</h2>
-      <p>Hello and welcome to this special corner of the internet. I am Meezna's best friend, and this blog is my tribute to her remarkable spirit and the extraordinary bond we share.</p>
-      <p>Every word you'll find here is dedicated to Meezna—her strength, her journey, her light. Through these pages, I hope to capture fragments of her courage, celebrate her growth, and document the beautiful resilience that defines her.</p>
-      <p>Our connection formed unexpectedly through screens and voices, yet quickly deepened into something profound and meaningful. In each other, we found something rare: understanding without judgment, support without conditions, and companionship across distances.</p>
-      <p>This space serves as both archive and offering—a collection of thoughts, reflections, and celebrations of the person Meezna is becoming. Through storms weathered and sunshine discovered, these entries mark the path of her healing and transformation.</p>
-      <p>To Meezna, whose strength continually amazes me: Your story deserves to be honored, and your progress celebrated. May these words reflect even a fraction of the light you bring into this world.</p>
-      <p>To readers: Thank you for visiting this tribute to an extraordinary soul. Your presence here honors her journey. Comments and kind feedback are always appreciated, as they help us build this community of support around someone truly special.</p>
-    </div>
-  </div>
+  <footer>© 2025 Boundless Love | For Meezna — the soul behind every word.</footer>
 </body>
 </html>

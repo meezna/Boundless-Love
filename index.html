@@ -1,86 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Journal — Boundless Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Handlee&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Boundless Love</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 30px 20px;
+      padding: 0;
       font-family: 'Handlee', cursive;
-      background: #fff0f5;
-      color: #333;
-      line-height: 1.6;
+      background: #ffeef5;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        #ffeef5 0px,
+        #ffeef5 24px,
+        #ffcad4 25px
+      );
+      overflow-x: hidden;
+      position: relative;
+      color: #4a4a4a;
     }
 
     .container {
       max-width: 800px;
-      margin: auto;
-      background: #fffafc;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
-      text-align: center;
       font-family: 'Quicksand', sans-serif;
+      font-size: 3em;
+      color: #d63384;
       margin-bottom: 20px;
     }
 
-    .entry {
-      margin-bottom: 30px;
+    p.intro {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+      white-space: pre-line;
     }
 
-    .entry-date {
-      font-size: 0.95em;
-      color: #999;
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+      background-color: #ff91b3;
+      border-radius: 30px;
+      font-family: 'Quicksand', sans-serif;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    hr {
-      border: none;
-      border-top: 1px dashed #ccc;
-      margin: 30px 0;
+    .button:hover {
+      background-color: #f3689c;
+      transform: scale(1.05);
     }
 
     footer {
       text-align: center;
+      margin-top: 60px;
       font-size: 0.85em;
-      color: #aaa;
-      margin-top: 50px;
+      color: #888;
+      z-index: 2;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      width: 15px;
+      height: 15px;
+      background-color: #ff6b81;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      animation: float 6s linear infinite;
+      transform: rotate(45deg);
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background-color: #ff6b81;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -8px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -8px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(45deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>📅 Daily Journal</h1>
+    <h1>Boundless Love</h1>
+    <p class="intro">
+This is not just a website.
+It’s a quiet corner of my heart — where feelings rest without judgment.
 
-    <div class="entry">
-      <div class="entry-date">June 11, 2025</div>
-      <p>
-        I said I’ll tell her tomorrow… that I knew something not from her lips, but from the shadows.<br>
-        His nickname is Shadow. She didn’t tell me. I found it myself. That made me smile.<br>
-        Maybe that’s what this bond is — reading what’s unsaid, knowing without asking.
-      </p>
-    </div>
+Here, I’ve written what I could never say aloud…
+A story of boundless love — one that lives in silence, respects every boundary, and still dares to feel deeply.
 
-    <hr>
+Every page is a whisper, every word is a heartbeat.
+This is for you — the one who never truly left my thoughts.
+    </p>
 
-    <div class="entry">
-      <div class="entry-date">June 10, 2025</div>
-      <p>
-        She called during her hospital duty. I was in the library. <br>
-        She asked, “How much do you miss me?” I wanted to say: <br>
-        “Even these pages feel empty without you in them.” But I stayed quiet. <br>
-        Because some truths are too soft to be spoken — they live between breaths.
-      </p>
-    </div>
-
-    <!-- Add more entries below following the same format -->
-
-    <footer>© 2025 Boundless Love — A Journal of Emotional Truths</footer>
+    <a href="poem.html" class="button">📜 Poem</a>
+    <a href="shayari.html" class="button">🎙️ Shayari</a>
+    <a href="ghazal.html" class="button">🎵 Ghazal</a>
+    <a href="journal.html" class="button">📅 Daily Journal</a>
+    <a href="shabda.html" class="button">🪶 Shabda</a>
   </div>
+
+  <!-- Floating hearts -->
+  <script>
+    const createHeart = () => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    };
+
+    setInterval(createHeart, 600);
+  </script>
+
+  <footer>© 2025 Boundless Love | Created with heart for Meezna 💖</footer>
 </body>
 </html>

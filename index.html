@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Quicksand&display=swap" rel="stylesheet">
   <style>
+    /* Base Styles */
     body {
       margin: 0;
       padding: 0;
@@ -18,10 +19,45 @@
         #ffcad4 25px
       );
       overflow-x: hidden;
-      position: relative;
       color: #4a4a4a;
     }
 
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #ffeef5;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Quicksand', sans-serif;
+      animation: fadeOut 2s ease 2.5s forwards;
+    }
+
+    #preloader h2 {
+      font-size: 2em;
+      color: #d63384;
+      animation: fadeInScale 2s ease;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Main Container */
     .container {
       max-width: 800px;
       margin: 60px auto;
@@ -32,6 +68,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
+      display: none;
     }
 
     h1 {
@@ -47,30 +84,50 @@
       white-space: pre-line;
     }
 
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
     .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 24px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
       background-color: #ff91b3;
-      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
       font-family: 'Quicksand', sans-serif;
-      font-size: 1.1em;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 10px;
       transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .button span.icon {
+      font-size: 1.8em;
+      margin-bottom: 8px;
     }
 
     .button:hover {
       background-color: #f3689c;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
-    /* 📱 Mobile styling for bigger buttons */
     @media screen and (max-width: 600px) {
       .button {
-        padding: 16px 28px;
-        font-size: 1.3em;
+        width: 130px;
+        height: 130px;
+        font-size: 1.1em;
+      }
+
+      .button span.icon {
+        font-size: 2em;
       }
     }
 
@@ -128,7 +185,13 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- 💖 Preloader Screen -->
+  <div id="preloader">
+    <h2>For Meezna…</h2>
+  </div>
+
+  <!-- 🌸 Main Content -->
+  <div class="container" id="main">
     <h1>Boundless Love</h1>
     <p class="intro">
 This is not just a website.
@@ -141,14 +204,16 @@ Every page is a whisper, every word is a heartbeat.
 This is for you — the one who never truly left my thoughts.
     </p>
 
-    <a href="poem.html" class="button">📜 Poem</a>
-    <a href="shayari.html" class="button">🎙️ Shayari</a>
-    <a href="ghazal.html" class="button">🎵 Ghazal</a>
-    <a href="journal.html" class="button">📅 Daily Journal</a>
-    <a href="shabda.html" class="button">🪶 Shabda</a>
+    <div class="buttons">
+      <a href="poem.html" class="button"><span class="icon">📜</span>Poem</a>
+      <a href="shayari.html" class="button"><span class="icon">🎙️</span>Shayari</a>
+      <a href="ghazal.html" class="button"><span class="icon">🎵</span>Ghazal</a>
+      <a href="journal.html" class="button"><span class="icon">📅</span>Journal</a>
+      <a href="shabda.html" class="button"><span class="icon">🪶</span>Shabda</a>
+    </div>
   </div>
 
-  <!-- Floating hearts -->
+  <!-- Floating Hearts -->
   <script>
     const createHeart = () => {
       const heart = document.createElement('div');
@@ -160,6 +225,13 @@ This is for you — the one who never truly left my thoughts.
     };
 
     setInterval(createHeart, 600);
+
+    // Show main content after preload
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('main').style.display = 'block';
+      }, 2500);
+    });
   </script>
 
   <footer>© 2025 Boundless Love | Created with heart for Meezna 💖</footer>

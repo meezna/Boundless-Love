@@ -1,128 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-  <meta charset="UTF-8">
-  <title>Boundless Love Journal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Journal - Boundless Love</title>
   <style>
     body {
-      font-family: Georgia, serif;
-      padding: 2rem;
-      background-color: #fff0f5;
-      color: #3c2f2f;
+      font-family: 'Georgia', serif;
+      background: url('https://i.imgur.com/6Jc2U9Q.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      color: #3d2e2e;
     }
+
+    nav {
+      background-color: #ffeaea;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #801336;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .overlay {
+      background-color: rgba(255, 240, 245, 0.92); /* Soft pink overlay */
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff0f5; /* Pinkish background */
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #b05b3b;
+    }
+
     .entry {
-      margin-bottom: 3rem;
+      margin-bottom: 40px;
     }
+
+    .entry h2 {
+      font-size: 22px;
+      color: #5b2c2c;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #8a6d6d;
+      margin-bottom: 15px;
+    }
+
     .journal-text {
       white-space: pre-line;
       line-height: 1.8;
+      font-size: 18px;
+      color: #3c2f2f;
       padding-left: 12px;
       border-left: 3px solid #ff7eb9;
     }
+
     hr {
       border: none;
-      border-top: 1px dashed #ccc;
-      margin: 2rem 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #ff7eb9,
+        #ff7eb9 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      margin: 40px 0;
+      opacity: 0.8;
+      border-radius: 1px;
     }
-    h2 {
-      color: #5b2c2c;
-    }
-    .date, small {
-      color: #8a6d6d;
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Boundless Love — Personal Journal</h1>
+  <div class="overlay">
+    <div class="container">
+      <h1>My Journal</h1>
 
-  <div class="entry" id="entry-june7">
-    <h2>📓 Journal Entry — Boundless Love</h2>
-    <div class="date">Date: June 7, 2025 | Time: 2:00 PM</div>
-    <small>Location: Library</small>
-    <div class="journal-text">
-We talked today—on a live call.
+      <div class="category-links">
+        <a href="index.html">🏡 Home</a>
+        <a href="poem.html">📜 Poem</a>
+        <a href="shayari.html">💫 Shayari</a>
+        <a href="ghazal.html">🎶 Ghazal</a>
+        <a href="journal.html">📝 Daily Journal</a>
+        <a href="shabda.html">💭 Shabda Manthan</a>
+      </div>
+
+
+      <!-- New Journal Entry - Added on Top -->
+<div class="entry">
+  <h2>📓 Journal Entry — Boundless Love</h2>
+  <div class="date">Date: June 7, 2025 | Time: 2:00 PM</div>
+  <small>Location: Library</small>
+  <div class="journal-text">
+We talked today—on a live call.  
 Different places, yet somehow our minds felt aligned.
-I was in the library, pretending to read.
+I was in the library, pretending to read.  
 She was at the hospital, on duty. Tired, but her voice still had that same warmth.
-Then she asked me:
+Then she asked me:  
 “How much do you miss me?”
-My heart skipped.
+My heart skipped.  
 There was something in the way she asked… a kind of quiet longing.
-I smiled and replied lightly—
+I smiled and replied lightly—  
 “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”
 But that wasn’t the truth.
-The truth is—I wasn’t even looking at the pages.
-I was trying to see *her* in them.
+The truth is—I wasn’t even looking at the pages.  
+I was trying to see *her* in them.  
 Trying to **feel** her in the silence between words.
-Then she said, softly—
-“You love me this much even from a distance?
+Then she said, softly—  
+“You love me this much even from a distance?  
 I wonder how much you'd love me if we were truly together…”
 I went quiet.
-Because what I really wanted to say was—
-“I know I can’t call you mine. I know one day, you’ll belong to someone else.
-But this love… this love isn’t about seeing you.
+Because what I really wanted to say was—  
+“I know I can’t call you mine. I know one day, you’ll belong to someone else.  
+But this love… this love isn’t about seeing you.  
 It’s about choosing to keep looking for you, even when I know I might never reach you.”
-But I didn’t say it.
-Because sometimes…
+But I didn’t say it.  
+Because sometimes…  
 the words that matter most are the ones we keep within.
-    </div>
-    <h2>Reflections:</h2>
-    <div class="journal-text">
-I’m not trying to forget her.
-I’m not trying to possess her.
-I’m simply trying to be a quiet presence in her journey—
+  </div>
+
+  <h2>Reflections:</h2>
+  <small>June 7, 2025</small>
+  <div class="journal-text">
+I’m not trying to forget her.  
+I’m not trying to possess her.  
+I’m simply trying to be a quiet presence in her journey—  
 like the calm after a storm, like a familiar voice in a dark room.
 
-And maybe, that’s what **boundless love** really is:
-A love that doesn’t ask for anything,
-But gives everything in silence,
+And maybe, that’s what **boundless love** really is:  
+A love that doesn’t ask for anything,  
+But gives everything in silence,  
 Just to make someone feel a little less alone.
-    </div>
   </div>
+</div>
 
-  <hr>
+<hr>
 
-  <div class="entry" id="entry-june4">
-    <h2>Some stories aren't written with ink, but with heartbeat</h2>
-    <div class="date">Date: June 4, 2025</div>
-    <small>Elmhust Hospital Centre, New York</small>
-    <div class="journal-text">
-I was admitted to the Hospiatl due to tachycardia
-pulse running wild, heart refusing to calm down.
-three days in a hospital bed, under constant monitoring
-X-rays == clear.
-Echocardiography? == Normal.
-The cardiologist looked puzzled.
-"Only 30. No alcohal, no smoking. no drugs....and still this?
 
-But i knew
-the diagnosis wasn't in my reports.
-It was in the message, the calls, the ache of longing stretched acroos 7,000 miles.
-It was you. Meezna
+      <div class="entry">
+        <h2>Some stories aren't written with ink, but with heartbeat</h2>
+        <div class="date">Date: June, 04, 2025</div>
+        <small>Elmhust Hospital Centre, New York</small>
+        <div class="journal-text">
+          <p>I was admitted to the Hospiatl due to tachycardia
+          pulse running wild, heart refusing to calm down.
+          three days in a hospital bed, under constant monitoring
+          X-rays == clear.
+          Echocardiography? == Normal.
+          The cardiologist looked puzzled.
+          "Only 30. No alcohal, no smoking. no drugs....and still this?</p>
+          <P>But i knew
+          the diagnosis wasn't in my reports.
+          It was in the message, the calls, the ache of longing stretched acroos 7,000 miles.
+          It was you. Meezna</P>
+          <p>Every morning, the first thing I do is checked my phone. Not for the world-- only for your message
+          We talk all day, switch between texting and calling like we're trying to close the distance inch by inch, voice by voice.
+          At night, you're the last person I speak to.
+          My day begins and ends with you.</p>
+          <p>And that's when it hit me--
+          Love isn't always soft. Sometimes, it comes as a storm in your chest.
+          I wasn't sick'
+          I was simple overwhelmed by the weight of missing you too much, too deeply.</p>
+          <p>My heart was beating at 145 per minute, constantly--for over 24 hours.
+          No fever. No symptom. No pain. Just a strom within.
+          She looked at the monitor, then at me, and asked,
+          "Do you even realize how dangerous this is?"</p>
+          <p>And there I was, lying in the hospital bed, smiling softly.
+          Because how could i explain?
+          It's not the body that's struggling. It's the heart-because it's filled with someone who's not here.</p>
+        </div>
 
-Every morning, the first thing I do is checked my phone. Not for the world-- only for your message
-We talk all day, switch between texting and calling like we're trying to close the distance inch by inch, voice by voice.
-At night, you're the last person I speak to.
-My day begins and ends with you.
+        <hr>
 
-And that's when it hit me--
-Love isn't always soft. Sometimes, it comes as a storm in your chest.
-I wasn't sick'
-I was simple overwhelmed by the weight of missing you too much, too deeply.
-
-My heart was beating at 145 per minute, constantly--for over 24 hours.
-No fever. No symptom. No pain. Just a strom within.
-She looked at the monitor, then at me, and asked,
-"Do you even realize how dangerous this is?"
-
-And there I was, lying in the hospital bed, smiling softly.
-Because how could i explain?
-It's not the body that's struggling. It's the heart-because it's filled with someone who's not here.
-    </div>
-  </div>
-
-  <hr>
-   <div class="entry">
+      <div class="entry">
         <h2>🌸 Today’s Journal Entry – Boundless Love 🌸</h2>
         <div class="date">Date: May 25, 2025</div>
         <small>4:54pm New York</small>
@@ -257,9 +333,6 @@ to be remembered, not possessed.</div>
       <hr>
     </div>
   </div>
-
-
-  <!-- Add more journal entries below using the same structure -->
-
 </body>
 </html>
+

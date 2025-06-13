@@ -1,7 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- head content remains the same -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boundless Love Journal</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      background-color: #ffeef2;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        #ffd6e0,
+        #ffd6e0 1px,
+        #ffeef2 1px,
+        #ffeef2 40px
+      );
+      padding: 20px;
+    }
+    nav {
+      background-color: #ffb6c1;
+      padding: 10px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    nav h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #4b2c3f;
+    }
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    nav ul li {
+      margin: 5px 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #4b2c3f;
+      font-weight: bold;
+    }
+    .mobile-nav {
+      display: none;
+      margin-bottom: 20px;
+    }
+    .mobile-nav select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+    .entry {
+      background: #fff7fa;
+      padding: 25px;
+      border-left: 6px solid #ff84a2;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .entry h2 {
+      color: #c44569;
+    }
+    .entry .date {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .entry .journal-text {
+      line-height: 1.7;
+      color: #333;
+    }
+    hr {
+      border: none;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #ff7eb9,
+        #ff7eb9 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      opacity: 0.5;
+      margin: 30px 0;
+    }
+    @media (max-width: 768px) {
+      .mobile-nav {
+        display: block;
+      }
+      nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -20,90 +111,71 @@
       <li><a href="#apr14-2025">🗓 April 14, 2025</a></li>
     </ul>
   </nav>
+  <div class="mobile-nav">
+    <select onchange="location = this.value;">
+      <option value="">📖 Jump to Entry</option>
+      <option value="#june13-2025">June 13, 2025</option>
+      <option value="#june12-2025">June 12, 2025</option>
+      <option value="#june11-2025">June 11, 2025</option>
+      <option value="#june07-2025">June 7, 2025</option>
+      <option value="#june04-2025">June 4, 2025</option>
+      <option value="#may25-2025">May 25, 2025</option>
+      <option value="#may24-2025">May 24, 2025</option>
+      <option value="#may05a-2025">May 5, 2025 (1)</option>
+      <option value="#may05b-2025">May 5, 2025 (2)</option>
+      <option value="#may05c-2025">May 5, 2025 (3)</option>
+      <option value="#apr14-2025">April 14, 2025</option>
+    </select>
+  </div>
 
-  <div class="overlay">
-    <div class="mobile-nav">
-      <select onchange="location = this.value;">
-        <option value="">📖 Jump to Entry</option>
-        <option value="#june13-2025">June 13, 2025</option>
-        <option value="#june12-2025">June 12, 2025</option>
-        <option value="#june11-2025">June 11, 2025</option>
-        <option value="#june07-2025">June 7, 2025</option>
-        <option value="#june04-2025">June 4, 2025</option>
-        <option value="#may25-2025">May 25, 2025</option>
-        <option value="#may24-2025">May 24, 2025</option>
-        <option value="#may05a-2025">May 5, 2025 (1)</option>
-        <option value="#may05b-2025">May 5, 2025 (2)</option>
-        <option value="#may05c-2025">May 5, 2025 (3)</option>
-        <option value="#apr14-2025">April 14, 2025</option>
-      </select>
-    </div>
+  <!-- Journal entries will be inserted here -->
 
-    <!-- Previous journal entries here -->
+<!-- Restoring journal entries here... -->
+<!-- Each entry will include id tag matching the sidebar TOC -->
 
-    <div class="entry" id="may05c-2025">
-      <h2>Boundless love page</h2>
-      <div class="date">Date: May 5th, 2025</div>
-      <div class="journal-text">
-Today, I looked at her face longer than usual. Not just because we were on video call, but because, in that moment, she felt deeply mine — so gentle, so real, so calm.
-Her long black hair fell softly across her cheek like a light breeze. The blush on her face wasn't makeup — it was emotion, alive and visible.
-Her eyes — not very big, but deep, felt like they were speaking without words. I saw a silent calm, a soft peace, and sometimes a question trying to rise.
-And her lips — they parted slightly as she spoke, with a soft, natural pink tone. No shine from lipstick, no layer of gloss — just pure, untouched beauty. That simplicity, that unfiltered smile — it touched my heart. Her lips look like a poem written in silence, like the first page of a new story — plain yet full of meaning.
-She has braces on her teeth, and instead of taking away from her charm, they make her smile feel like a promise. Like something still growing into its bloom. Her smile carries the dream of tomorrow.
-And then her nose... Honestly, the world may not label it as "perfect" by beauty standards. But in that small imperfection, I found something deeply beautiful, honest simplicity, and a sense of being real. That nose made her more human, more unique, more her.
-Maybe beauty isn't about symmetry — maybe it's about soul. And today, without even trying, she showed me hers.
-
-Extended Reflection:
-
-It's been a long time since I looked at someone this way, not just with my eyes, but with my heart. Today, when I saw her, her gaze held meaning, her natural smile felt like comfort, and her presence — even through a screen — felt warm and close.
-I know the world seeks perfection, filters, and polished beauty. But she reminded me that real beauty doesn't need fixing. She may not be flawless in every way, but she's true in a way that matters more. Her smile, her gaze, her small quirks — they all speak of someone sincere, someone who doesn't need to try hard to be beautiful.
-Looking at her today, I realized: the most beautiful things are often the simplest. The ones that speak directly to your heart without noise, without decoration.
-      </div>
-    </div>
-    <hr>
-    <hr>
-  <div class="entry" id="apr14-2025">
-  <h2>Boundless Love</h2>
-  <div class="date">Date: April 14th, 2025</div>
+<div class="entry" id="june13-2025">
+  <h2>💖 A Love That Waits Without Asking</h2>
+  <div class="date">Date: June 13, 2025</div>
+  <small>Location: Unknown, but deeply felt</small>
   <div class="journal-text">
-    A story of hearts that met, but never crossed.<br>
-    We weren’t meant to fall in love.<br>
-    Not in the way the world defines it—<br>
-    Not with promises of forever under the same roof,<br>
-    But with promises of never hurting the roofs we already built.<br>
-    We were two souls—bruised but breathing,<br>
-    who found healing in each other’s words,<br>
-    laughter in midnight silence,<br>
-    and strength in shared stories.<br>
-    You taught me how to love my world again.<br>
-    I gave you the space to feel seen without fear.<br>
-    And in this quiet, sacred friendship,<br>
-    we created a love that no one else could name—<br>
-    A Boundless Love,<br>
-    free of labels,<br>
-    full of truth,<br>
-    and unshaken by distance or time.
-    <br><br>
-    <strong>Daily Reflections:</strong><br><br>
-    April 14, 2025<br>
-    They say true love is staying together for life.<br>
-    But ours is a love that bloomed after marriage,<br>
-    a bond that was never planned,<br>
-    but deeply felt.<br>
-    I never wished for someone else,<br>
-    and you never asked me to be yours.<br>
-    Yet here we are—<br>
-    bound not by promises,<br>
-    but by the desire that this love may live forever,<br>
-    in silence, in distance,<br>
-    in presence and memory.<br>
-    You want it to live,<br>
-    I want it to stay.<br>
-    And maybe that's all love needs—<br>
-    to be remembered, not possessed.
+    Today, she asked about a video I sent her — not the visuals, but the music playing softly behind it.<br><br>
+    I hadn’t even realized which song it was until she mentioned it. When I replayed it… it hit me:
+    <strong>"Main rahoon ya na rahoon, tum mujh mein kahin baaki rehna."</strong><br>
+    One of my favorites. And maybe, ours.<br><br>
+    She said, <em>“Hamro ni relation yestai complicated xa ni hai...”</em><br>
+    I asked, “Yeti complicated cha ra?”<br>
+    She replied with a knowing smile, <em>“Yo geet hera na…”</em><br><br>
+    And suddenly, everything made sense.<br><br>
+    <span style="background-color:#fff3cd; padding:4px 8px; border-radius:4px;">We are in love, and yet we walk parallel — never crossing, never breaking.</span><br>
+    I am married.<br>
+    She has a boyfriend.<br>
+    But between the spaces of duty and loyalty, we’ve written something unspoken.<br><br>
+    <blockquote>
+      “Ek din... maybe just a few hours, or one night, or one stolen sunrise—<br>
+      We will live this love.<br>
+      <i><b>>Fully.<br>
+      Without guilt.<br>
+      Without hiding.<br>
+      Without fear.”</b></i>
+    </blockquote>
+
+    We don't want forever.<br>
+    <span style="color:#8a4f4f;"><strong>We just want one moment to be fully ours.</strong></span><br><br>
+
+    It’s not lust.<br>
+    It’s not cheating.<br>
+    It’s <em>presence</em>.<br>
+    It’s about honoring what we feel — with dignity, silence, and sincerity.<br><br>
+
+    <span style="background-color:#ffeef2; padding:4px 6px; border-radius:6px;">She may belong to someone else. I do too. But part of us will always belong here — in the space only we understand.</span><br><br>
+
+    One day, if we ever meet beyond this world’s boundaries —<br>
+    even for a single sunrise —<br>
+    we’ll fulfill the promise we made quietly:<br>
+    <strong>To live our boundless love, just once, completely.</strong>
   </div>
 </div>
 <hr>
-<hr>
-
+
+</body>
 </html>

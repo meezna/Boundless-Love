@@ -1,0 +1,86 @@
+body {
+    background-color: #ffe5ec;
+    font-family: 'Georgia', serif;
+    margin: 0;
+}
+
+header {
+    background-color: #ff99b3;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fcd2d2;
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+.journal-entry {
+    background: #fffaf0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 80%;
+}
+
+.metadata {
+    font-style: italic;
+    color: #777;
+}
+
+.entry {
+    padding: 15px;
+    background: #fff;
+    border-left: 5px solid #ff99b3;
+}
+
+.reflections {
+    background: #fff3f3;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.reflections h3 {
+    color: #d45b8f;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 3px solid #ff99b3;
+    padding-left: 10px;
+    color: #444;
+}

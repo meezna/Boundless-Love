@@ -2,39 +2,22 @@ body {
     background-color: #ffe5ec;
     font-family: 'Georgia', serif;
     margin: 0;
-}
-
-header {
-    background-color: #ff99b3;
-    text-align: center;
-    padding: 10px;
-}
-
-nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    padding: 0;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
+/* Sidebar Fix */
 .sidebar {
     width: 250px;
     background-color: #fcd2d2;
     padding: 15px;
+    height: 100vh;
     position: fixed;
-    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
 }
 
+/* Sidebar Links */
 .sidebar a {
     display: block;
     padding: 10px;
@@ -42,19 +25,34 @@ nav ul li a {
     color: #333;
 }
 
-@media (max-width: 600px) {
+/* Center Journal Content */
+main {
+    margin-left: 270px; /* Creates space for sidebar */
+    padding: 20px;
+    width: 65%;
+}
+
+/* Mobile View: Toggle Sidebar */
+@media (max-width: 768px) {
     .sidebar {
-        display: none;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    main {
+        margin-left: 0;
+        width: 90%;
     }
 }
 
+/* Journal Entry Design */
 .journal-entry {
     background: #fffaf0;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
     margin: 20px auto;
-    width: 80%;
 }
 
 .metadata {

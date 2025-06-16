@@ -1,64 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Boundless Love – Journal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('https://i.imgur.com/7pJ7XwE.jpg') repeat;
+      color: #3e3e3e;
+    }
+
+    .top-nav {
+      background-color: #ffc1cc;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-around;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #5c0032;
+    }
+
+    .main-container {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .sidebar {
+      width: 220px;
+      padding: 20px;
+      background-color: #ffe6ea;
+      border-right: 2px solid #ffcad4;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar h3 {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #8b1c3f;
+    }
+
+    .journal-container {
+      flex-grow: 1;
+      padding: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff0f5cc;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      line-height: 1.7;
+    }
+
+    .journal-entry {
+      border-bottom: 1px dashed #ffabc4;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      position: relative;
+    }
+
+    .rose-icon {
+      position: absolute;
+      width: 32px;
+      height: auto;
+      opacity: 0.8;
+    }
+
+    .rose-top-left {
+      top: -15px;
+      left: -15px;
+    }
+
+    .rose-top-right {
+      top: -15px;
+      right: -15px;
+    }
+
+    .rose-bottom-left {
+      bottom: -15px;
+      left: -15px;
+    }
+
+    .rose-bottom-right {
+      bottom: -15px;
+      right: -15px;
+    }
+
+    h2 {
+      color: #8b1c3f;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      margin-top: 0;
+      color: #a14a5d;
+      font-weight: normal;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .pagination button {
+      margin: 0 5px;
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid #f4a1b6;
+      cursor: pointer;
+      color: #8b1c3f;
+    }
+
+    .pagination button.active {
+      background-color: #f191b9;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="ghazal.html">Ghazals</a></li>
-                <li><a href="journal.html">Journal</a></li>
-                <li><a href="poem.html">Poems</a></li>
-                <li><a href="shabda.html">Shabda</a></li>
-                <li><a href="shayari.html">Shayari</a></li>
-            </ul>
-        </nav>
-    </header>
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="#">Poems</a>
+    <a href="#">Shayari</a>
+    <a href="#">Ghazal</a>
+    <a href="#">Shabda</a>
+    <a href="journal.html">Journal</a>
+  </nav>
 
+  <div class="main-container">
     <aside class="sidebar">
-        <h2>Jump to Date</h2>
-        <a href="#jun-7-2025">June 7, 2025</a>
-        <a href="#jun-8-2025">June 8, 2025</a>
-        <a href="#jun-9-2025">June 9, 2025</a>
-        <a href="#jun-10-2025">June 10, 2025</a>
+      <h3>Jump by Date</h3>
+      <ul id="date-list"></ul>
     </aside>
 
-    <main>
-        <section class="journal-entry" id="jun-7-2025">
-            <h2>📓 Journal Entry — Boundless Love</h2>
-            <p class="metadata">Date: June 7, 2025 | Time: 2:00 PM | Location: Library</p>
-            
-            <article class="entry">
-                <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
-
-                <p>Then she asked me: <q>How much do you miss me?</q> My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— <q>I feel like I see you between the lines of these pages. Even the letters can’t hide you.</q></p>
-
-                <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
-
-                <p>Then she said, softly— <q>You love me this much even from a distance? I wonder how much you'd love me if we were truly together...</q></p>
-
-                <p>I went quiet. Because what I really wanted to say was— <q>I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.</q></p>
-
-                <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
-            </article>
-
-            <aside class="reflections">
-                <h3>Reflections</h3>
-                <p><strong>June 7, 2025</strong></p>
-                <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
-
-                <blockquote>
-                    A love that doesn’t ask for anything, <br>
-                    But gives everything in silence, <br>
-                    Just to make someone feel a little less alone.
-                </blockquote>
-            </aside>
-        </section>
+    <main class="journal-container" id="journal-container">
+      <!-- Journal entries will be injected here -->
     </main>
+  </div>
+
+  <script>
+    const entries = [
+      {
+        date: 'June 7, 2025',
+        title: 'Boundless Love — A Quiet Presence',
+        content: `
+          <p><strong>Time:</strong> 2:00 PM<br><strong>Location:</strong> Library</p>
+          <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned.</p>
+          <p>I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
+          <p>Then she asked me: “How much do you miss me?” My heart skipped. There was something in the way she asked… a kind of quiet longing.</p>
+          <p>I smiled and replied lightly— “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”</p>
+          <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
+          <p>Then she said, softly— “You love me this much even from a distance? I wonder how much you'd love me if we were truly together…”</p>
+          <p>I went quiet. Because what I really wanted to say was—</p>
+          <p>“I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.”</p>
+          <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
+          <br>
+          <p><strong>Reflections:</strong><br>June 7, 2025</p>
+          <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
+          <p>And maybe, that’s what <strong>boundless love</strong> really is:<br>
+          A love that doesn’t ask for anything,<br>
+          But gives everything in silence,<br>
+          Just to make someone feel a little less alone.</p>
+        `
+      },
+      {
+        date: 'June 16, 2025',
+        title: 'A Dream That Stayed Silent',
+        content: `
+          <p>He’s truly lucky… he gets to hold your hand, call you his, live the moments I only dream of.</p>
+          <p>I guess in this lifetime, love chose him—and left me with silent prayers and unspoken wishes.</p>
+          <p><em>— Boundless Love</em></p>
+        `
+      },
+      {
+        date: 'June 15, 2025',
+        title: 'Unspoken Companionship',
+        content: `
+          <p>You told me, “Hamro ni relation complicated xa ni hai...”</p>
+          <p>I smiled, knowing every word hides a world we both built quietly. A friendship like a marriage—without ceremony, without claim. Just presence, forever.</p>
+          <p><em>— Boundless Love</em></p>
+        `
+      }
+    ];
+
+    const entriesPerPage = 2;
+    let currentPage = 1;
+    const container = document.getElementById('journal-container');
+    const dateList = document.getElementById('date-list');
+
+    function renderEntries(page) {
+      container.innerHTML = '';
+      const start = (page - 1) * entriesPerPage;
+      const end = start + entriesPerPage;
+      const pageEntries = entries.slice(start, end);
+
+      pageEntries.forEach(entry => {
+        const section = document.createElement('section');
+        section.className = 'journal-entry';
+        section.id = entry.date.replace(/\s|,/g, '');
+
+        section.innerHTML = `
+          <img src="https://i.imgur.com/hMzF1RS.png" class="rose-icon rose-top-left">
+          <img src="https://i.imgur.com/hMzF1RS.png" class="rose-icon rose-top-right">
+          <img src="https://i.imgur.com/hMzF1RS.png" class="rose-icon rose-bottom-left">
+          <img src="https://i.imgur.com/hMzF1RS.png" class="rose-icon rose-bottom-right">
+          <h2>${entry.title}</h2>
+          <h4>${entry.date}</h4>
+          ${entry.content}
+        `;
+        container.appendChild(section);
+      });
+
+      renderPagination();
+    }
+
+    function renderSidebar() {
+      dateList.innerHTML = '';
+      entries.forEach(entry => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#${entry.date.replace(/\s|,/g, '')}">${entry.date}</a>`;
+        dateList.appendChild(li);
+      });
+    }
+
+    function renderPagination() {
+      const totalPages = Math.ceil(entries.length / entriesPerPage);
+      const paginationBar = document.createElement('div');
+      paginationBar.className = 'pagination';
+
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.innerText = i;
+        btn.classList.toggle('active', i === currentPage);
+        btn.addEventListener('click', () => {
+          currentPage = i;
+          renderEntries(currentPage);
+        });
+        paginationBar.appendChild(btn);
+      }
+
+      container.appendChild(paginationBar);
+    }
+
+    renderEntries(currentPage);
+    renderSidebar();
+  </script>
 </body>
 </html>

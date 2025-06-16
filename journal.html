@@ -1,311 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Boundless Love Journal</title>
   <style>
     body {
-  display: flex;
+      margin: 0;
       font-family: 'Georgia', serif;
-      margin: 0;
-      background-color: #ffeef2;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        #ffd6e0,
-        #ffd6e0 1px,
-        #ffeef2 1px,
-        #ffeef2 40px
-      );
-      padding: 20px;
+      background-color: #fff0f5;
+      display: flex;
+      min-height: 100vh;
     }
+
     nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       background-color: #ffb6c1;
-      padding: 10px 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 10;
     }
-    nav h3 {
-      margin: 0;
-      font-size: 20px;
-      color: #4b2c3f;
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
     }
-    nav ul {
+
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 15px;
+      z-index: 11;
+      background-color: #ff69b4;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 80px 20px 20px;
+      background-color: #ffe6f0;
+      border-right: 2px dashed #d48dad;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      color: #b03a59;
+    }
+
+    .sidebar ul {
       list-style: none;
       padding-left: 0;
     }
-    nav ul li {
-      margin: 5px 0;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #4b2c3f;
-      font-weight: bold;
-    }
-    .mobile-nav {
-      display: none;
-      margin-bottom: 20px;
-    }
-    .mobile-nav select {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 8px;
-    }
-    .entry {
-      background: #fff7fa;
-      padding: 25px;
-      border-left: 6px solid #ff84a2;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .entry h2 {
-      color: #c44569;
-    }
-    .entry .date {
-      font-size: 14px;
-      color: #888;
+
+    .sidebar li {
       margin-bottom: 10px;
+      color: #a0522d;
+      cursor: pointer;
     }
-    .entry .journal-text {
-      line-height: 1.7;
-      color: #333;
+
+    .content {
+      flex: 1;
+      padding: 100px 40px 40px 40px;
+      background-color: #fffafc;
     }
+
+    .entry {
+      margin-bottom: 40px;
+    }
+
+    .entry h2 {
+      margin-top: 0;
+      color: #d2698c;
+    }
+
     hr {
       border: none;
-      height: 2px;
-      background: repeating-linear-gradient(
-        to right,
-        #ff7eb9,
-        #ff7eb9 10px,
-        transparent 10px,
-        transparent 20px
-      );
-      opacity: 0.5;
-      margin: 30px 0;
+      border-top: 2px dashed #d48dad;
+      margin: 20px 0;
     }
+
     @media (max-width: 768px) {
-      .mobile-nav {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        height: 100%;
+        background-color: #ffe6f0;
+        transform: translateX(-100%);
+        width: 200px;
+        z-index: 9;
+        border-right: 2px dashed #d48dad;
+        padding: 20px;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+
+      .sidebar-toggle {
         display: block;
       }
-      nav {
-        display: none;
+
+      .content {
+        padding: 120px 20px 20px;
+      }
+
+      nav a {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
+
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
   <nav>
-    <h3>📖 Journal Index</h3>
-    <ul>
-      <li><a href="#june13-2025">🗓 June 13, 2025</a></li>
-      <li><a href="#june12-2025">🗓 June 12, 2025</a></li>
-      <li><a href="#june11-2025">🗓 June 11, 2025</a></li>
-      <li><a href="#june07-2025">🗓 June 7, 2025</a></li>
-      <li><a href="#june04-2025">🗓 June 4, 2025</a></li>
-      <li><a href="#may25-2025">🗓 May 25, 2025</a></li>
-      <li><a href="#may24-2025">🗓 May 24, 2025</a></li>
-      <li><a href="#may05a-2025">🗓 May 5, 2025 (1)</a></li>
-      <li><a href="#may05b-2025">🗓 May 5, 2025 (2)</a></li>
-      <li><a href="#may05c-2025">🗓 May 5, 2025 (3)</a></li>
-      <li><a href="#apr14-2025">🗓 April 14, 2025</a></li>
-    </ul>
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="poems.html">Poems</a>
+    <a href="love-letter.html">Love Letters</a>
+    <a href="ghazals.html">Ghazals</a>
   </nav>
-<style>
-  .content-area {
-    flex: 1;
-    padding-left: 20px;
-    max-width: 800px;
-    margin: auto;
-  }
-  @media (max-width: 768px) {
-    body {
-      display: block;
-    }
-    .content-area {
-      padding-left: 0;
-    }
-  }
-</style>
-  <div class="mobile-nav">
-    <select onchange="location = this.value;">
-      <option value="">📖 Jump to Entry</option>
-      <option value="#june13-2025">June 13, 2025</option>
-      <option value="#june12-2025">June 12, 2025</option>
-      <option value="#june11-2025">June 11, 2025</option>
-      <option value="#june07-2025">June 7, 2025</option>
-      <option value="#june04-2025">June 4, 2025</option>
-      <option value="#may25-2025">May 25, 2025</option>
-      <option value="#may24-2025">May 24, 2025</option>
-      <option value="#may05a-2025">May 5, 2025 (1)</option>
-      <option value="#may05b-2025">May 5, 2025 (2)</option>
-      <option value="#may05c-2025">May 5, 2025 (3)</option>
-      <option value="#apr14-2025">April 14, 2025</option>
-    </select>
+
+  <div class="sidebar" id="sidebar">
+    <h3>Entries</h3>
+    <ul>
+      <li onclick="scrollToEntry('june12-2025')">June 12, 2025</li>
+      <li onclick="scrollToEntry('june13-2025')">June 13, 2025</li>
+      <!-- Add more entries here -->
+    </ul>
   </div>
 
-  <div class="content-area">
-<!-- Journal entries will be inserted here -->
-
-<!-- Restoring journal entries here... -->
-<!-- Each entry will include id tag matching the sidebar TOC -->
-
-<div class="entry" id="june13-2025">
-  <h2>💖 A Love That Waits Without Asking</h2>
-  <div class="date">Date: June 13, 2025</div>
-  <small>Location: Unknown, but deeply felt</small>
-  <div class="journal-text">
-    Today, she asked about a video I sent her — not the visuals, but the music playing softly behind it.<br><br>
-    I hadn’t even realized which song it was until she mentioned it. When I replayed it… it hit me:
-    <strong>"Main rahoon ya na rahoon, tum mujh mein kahin baaki rehna."</strong><br>
-    One of my favorites. And maybe, ours.<br><br>
-    She said, <em>“Hamro ni relation yestai complicated xa ni hai...”</em><br>
-    I asked, “Yeti complicated cha ra?”<br>
-    She replied with a knowing smile, <em>“Yo geet hera na…”</em><br><br>
-    And suddenly, everything made sense.<br><br>
-    <span style="background-color:#fff3cd; padding:4px 8px; border-radius:4px;">We are in love, and yet we walk parallel — never crossing, never breaking.</span><br>
-    I am married.<br>
-    She has a boyfriend.<br>
-    But between the spaces of duty and loyalty, we’ve written something unspoken.<br><br>
-    <blockquote>
-      “Ek din... maybe just a few hours, or one night, or one stolen sunrise—<br>
-      We will live this love.<br>
-      <i><b>>Fully.<br>
-      Without guilt.<br>
-      Without hiding.<br>
-      Without fear.”</b></i>
-    </blockquote>
-
-    We don't want forever.<br>
-    <span style="color:#8a4f4f;"><strong>We just want one moment to be fully ours.</strong></span><br><br>
-
-    It’s not lust.<br>
-    It’s not cheating.<br>
-    It’s <em>presence</em>.<br>
-    It’s about honoring what we feel — with dignity, silence, and sincerity.<br><br>
-
-    <span style="background-color:#ffeef2; padding:4px 6px; border-radius:6px;">She may belong to someone else. I do too. But part of us will always belong here — in the space only we understand.</span><br><br>
-
-    One day, if we ever meet beyond this world’s boundaries —<br>
-    even for a single sunrise —<br>
-    we’ll fulfill the promise we made quietly:<br>
-    <strong>To live our boundless love, just once, completely.</strong>
-  </div>
-</div>
-<hr>
-
+  <div class="content">
     <div class="entry" id="june12-2025">
-  <h2>✨ The Day Truth Sat Between Us</h2>
-  <div class="date">Date: June 12, 2025</div>
-  <small>Location: Queens Malls, New York</small>
-  <div class="journal-text">
-    It began quietly.<br>
-    No storm. No suspicion.<br>
-    Just me, holding my calm — and a truth I had already found,<br>
-    gently knocking on the door of hers.<br><br>
-    I asked her softly.<br>
-    No drama. No threat. No accusation.<br>
-    Just a question dressed in honesty:<br><br>
-    “There’s something I know. And I’d rather hear it from you —<br>
-    because we’re not just friends, we’re something more.<br>
-    And that ‘more’ deserves truth.”<br><br>
-    At first, she denied.<br>
-    “I’m not in a relationship,” she said.<br>
-    But I didn't react.<br>
-    Because I wasn't there to catch her lying —<br>
-    I was there to help her feel safe enough to be real.<br><br>
-    So I replied:<br><br>
-    “If it’s true, I won’t judge you.<br>
-    We’re close enough to share everything — even the hardest things.”<br><br>
-    She went quiet.<br>
-    And then… she opened.<br><br>
-    She told me everything.<br>
-    She spoke of Nishan —<br>
-    not just as a boy from her world,<br>
-    but the one who stood between her and death.<br><br>
-    It was New Year’s Day.<br>
-    A crowd of friends.<br>
-    A secret moment of overwhelming pain.<br><br>
-    She said she had tried to leave this world —<br>
-    but Nishan had pulled her back.<br><br>
-    Since then, she saw him as something sent from above.<br>
-    Not just a friend, not even just a lover —<br>
-    but a savior. A symbol. A soul who was in the right place at the right time.<br><br>
-    I listened.<br>
-    Not with jealousy.<br>
-    Not with fear.<br><br>
-    But with full presence.<br>
-    Because the past doesn’t scare me.<br>
-    But silence does.<br><br>
-    She admitted it all —<br>
-    even the part where she lied to me at the beginning.<br>
-    And she said:<br><br>
-    “I felt guilty for lying… but you made it easy to tell the truth.”<br>
-    Then she added, quietly:<br>
-    “Please don’t be mad.”<br>
-    And I wasn’t.<br><br>
-    Because I’ve never loved her to possess her.<br>
-    I’ve loved her to protect her truth — even when I wasn’t a part of it.<br><br>
-    I said softly:<br><br>
-    “I never believed you were wrong.<br>
-    Maybe you were scared.<br>
-    Maybe trust was shaky.<br>
-    But I get it.<br>
-    Because I’m not here to take anything.<br>
-    I’m here to be the place where you can give your truth, without fear.”<br><br>
-    She paused. Then said something I’ll never forget:<br><br>
-    “Our bond will be real the day we can even share about our sexual experiences without shame.”<br><br>
-    I didn’t hear lust.<br>
-    I heard emotional nakedness —<br>
-    her longing to feel so safe that even her physical past wouldn’t scare me away.<br><br>
-    And I smiled.<br>
-    Because we were getting there.<br><br>
-    Later, she said something small — but it stayed with me:<br><br>
-    “You write so many poems for me, so many messages.<br>
-    Even a simple line from you feels heart-touching.<br>
-    Nishan saved me once…<br>
-    but you…<br>
-    you save me with your words — every day.<br>
-    They’re not just messages.<br>
-    Sometimes they motivate me.<br>
-    Sometimes they hurt me.<br>
-    Sometimes they make me smile.<br>
-    I don’t reply… not because I don’t feel — but because I have no words strong enough.”<br><br>
-    And then she added, almost whispering:<br><br>
-    “You’ve made me feel so much like yours,<br>
-    I’m scared.<br>
-    I want to say it…<br>
-    but I can’t bring myself to fully claim it.”<br><br>
-    And finally:<br><br>
-    “I may say anything to others… but I could never raise my voice at you.<br>
-    I deeply, deeply respect you.”<br><br>
-    I teased:<br><br>
-    “So that means you don’t share all your emotions with me?”<br><br>
-    And she replied — voice soft, heart open:<br><br>
-    “That’s not it.<br>
-    I just… don’t want to lose you.”<br><br>
-    We laughed after.<br>
-    We played games.<br>
-    We joked about rough words and mouthful sarcasm —<br>
-    how even that felt beautiful between us.<br><br>
-    And when it was time to sleep,<br>
-    she gave me her phone again.<br>
-    Let me hold that comfort.<br>
-    Let me stay close.<br><br>
-    And just before her eyes closed,<br>
-    she mumbled one last thing:<br><br>
-    “Wake me up tomorrow… with the baby.”<br><br>
-    As if to say:<br>
-    “Let me begin tomorrow with the two most peaceful pieces of my world.”<br><br>
-    And so I will.<br><br>
-    To be continued…
+      <h2>June 12, 2025</h2>
+      <p>
+        The day I asked Meezna about Shadow... her eyes told the truth her words couldn’t hide.
+        She confessed with softness, and though the honesty ached, it also healed.
+        That night, she asked me to wake her up with the baby — even 7,000 miles away.
+      </p>
+      <hr>
+    </div>
+
+    <div class="entry" id="june13-2025">
+      <h2>June 13, 2025</h2>
+      <p>
+        Rain fell, and so did the silence between us.  
+        She said our love is complicated — not wrong, not shameful, just unspeakable.  
+        I wrote her a poem she didn’t reply to. But she read it, and that was enough.
+      </p>
+      <hr>
+    </div>
   </div>
-</div>
-<hr>
 
+  <script>
+    function scrollToEntry(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      if (window.innerWidth < 768) {
+        toggleSidebar(); // auto-close on mobile
+      }
+    }
 
-    
-</div>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("show");
+    }
+  </script>
 </body>
 </html>

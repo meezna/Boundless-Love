@@ -8,7 +8,8 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #fff0f5;
+      background: url('https://i.imgur.com/Zi6qD5u.jpg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       min-height: 100vh;
     }
@@ -18,7 +19,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #ffb6c1;
+      background-color: rgba(255, 182, 193, 0.9);
       padding: 10px 0;
       text-align: center;
       z-index: 10;
@@ -49,7 +50,7 @@
     .sidebar {
       width: 200px;
       padding: 80px 20px 20px;
-      background-color: #ffe6f0;
+      background-color: rgba(255, 230, 240, 0.95);
       border-right: 2px dashed #d48dad;
       transition: transform 0.3s ease;
     }
@@ -73,7 +74,8 @@
     .content {
       flex: 1;
       padding: 100px 40px 40px 40px;
-      background-color: #fffafc;
+      background-color: rgba(255, 250, 252, 0.88);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
     .entry {
@@ -101,7 +103,6 @@
         top: 50px;
         left: 0;
         height: 100%;
-        background-color: #ffe6f0;
         transform: translateX(-100%);
         width: 200px;
         z-index: 9;
@@ -144,7 +145,7 @@
     <ul>
       <li onclick="scrollToEntry('june12-2025')">June 12, 2025</li>
       <li onclick="scrollToEntry('june13-2025')">June 13, 2025</li>
-      <!-- Add more entries here -->
+      <!-- Add more entries like this -->
     </ul>
   </div>
 

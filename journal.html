@@ -1,187 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boundless Love Journal</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: url('https://i.imgur.com/Zi6qD5u.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      min-height: 100vh;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(255, 182, 193, 0.9);
-      padding: 10px 0;
-      text-align: center;
-      z-index: 10;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .sidebar-toggle {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 15px;
-      z-index: 11;
-      background-color: #ff69b4;
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .sidebar {
-      width: 200px;
-      padding: 80px 20px 20px;
-      background-color: rgba(255, 230, 240, 0.95);
-      border-right: 2px dashed #d48dad;
-      transition: transform 0.3s ease;
-    }
-
-    .sidebar h3 {
-      margin-top: 0;
-      color: #b03a59;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 10px;
-      color: #a0522d;
-      cursor: pointer;
-    }
-
-    .content {
-      flex: 1;
-      padding: 100px 40px 40px 40px;
-      background-color: rgba(255, 250, 252, 0.88);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .entry {
-      margin-bottom: 40px;
-    }
-
-    .entry h2 {
-      margin-top: 0;
-      color: #d2698c;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px dashed #d48dad;
-      margin: 20px 0;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 50px;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%);
-        width: 200px;
-        z-index: 9;
-        border-right: 2px dashed #d48dad;
-        padding: 20px;
-      }
-
-      .sidebar.show {
-        transform: translateX(0);
-      }
-
-      .sidebar-toggle {
-        display: block;
-      }
-
-      .content {
-        padding: 120px 20px 20px;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ghazal.html">Ghazals</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="poem.html">Poems</a></li>
+                <li><a href="shabda.html">Shabda</a></li>
+                <li><a href="shayari.html">Shayari</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    <aside class="sidebar">
+        <h2>Jump to Date</h2>
+        <a href="#jun-7-2025">June 7, 2025</a>
+        <a href="#jun-8-2025">June 8, 2025</a>
+        <a href="#jun-9-2025">June 9, 2025</a>
+        <a href="#jun-10-2025">June 10, 2025</a>
+    </aside>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="journal.html">Journal</a>
-    <a href="poems.html">Poems</a>
-    <a href="love-letter.html">Love Letters</a>
-    <a href="ghazals.html">Ghazals</a>
-  </nav>
+    <main>
+        <section class="journal-entry" id="jun-7-2025">
+            <h2>📓 Journal Entry — Boundless Love</h2>
+            <p class="metadata">Date: June 7, 2025 | Time: 2:00 PM | Location: Library</p>
+            
+            <article class="entry">
+                <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
 
-  <div class="sidebar" id="sidebar">
-    <h3>Entries</h3>
-    <ul>
-      <li onclick="scrollToEntry('june12-2025')">June 12, 2025</li>
-      <li onclick="scrollToEntry('june13-2025')">June 13, 2025</li>
-      <!-- Add more entries like this -->
-    </ul>
-  </div>
+                <p>Then she asked me: <q>How much do you miss me?</q> My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— <q>I feel like I see you between the lines of these pages. Even the letters can’t hide you.</q></p>
 
-  <div class="content">
-    <div class="entry" id="june12-2025">
-      <h2>June 12, 2025</h2>
-      <p>
-        The day I asked Meezna about Shadow... her eyes told the truth her words couldn’t hide.
-        She confessed with softness, and though the honesty ached, it also healed.
-        That night, she asked me to wake her up with the baby — even 7,000 miles away.
-      </p>
-      <hr>
-    </div>
+                <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
 
-    <div class="entry" id="june13-2025">
-      <h2>June 13, 2025</h2>
-      <p>
-        Rain fell, and so did the silence between us.  
-        She said our love is complicated — not wrong, not shameful, just unspeakable.  
-        I wrote her a poem she didn’t reply to. But she read it, and that was enough.
-      </p>
-      <hr>
-    </div>
-  </div>
+                <p>Then she said, softly— <q>You love me this much even from a distance? I wonder how much you'd love me if we were truly together...</q></p>
 
-  <script>
-    function scrollToEntry(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-      if (window.innerWidth < 768) {
-        toggleSidebar(); // auto-close on mobile
-      }
-    }
+                <p>I went quiet. Because what I really wanted to say was— <q>I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.</q></p>
 
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("show");
-    }
-  </script>
+                <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
+            </article>
+
+            <aside class="reflections">
+                <h3>Reflections</h3>
+                <p><strong>June 7, 2025</strong></p>
+                <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
+
+                <blockquote>
+                    A love that doesn’t ask for anything, <br>
+                    But gives everything in silence, <br>
+                    Just to make someone feel a little less alone.
+                </blockquote>
+            </aside>
+        </section>
+    </main>
 </body>
 </html>

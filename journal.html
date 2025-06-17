@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Boundless Love – Journal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boundless Love – Journal</title>
   <style>
     body {
       margin: 0;
       font-family: 'Georgia', serif;
       background-color: #fff5f8;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        #fff5f8,
-        #fff5f8 29px,
-        #fcd2dc 30px
-      );
+      background-image: repeating-linear-gradient(to bottom, #fff5f8, #fff5f8 29px, #fcd2dc 30px);
       color: #3e3e3e;
     }
     .top-nav {
@@ -103,16 +98,6 @@
       padding-bottom: 30px;
       position: relative;
     }
-    .rose-icon {
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      opacity: 0.9;
-    }
-    .rose-top-left { top: -15px; left: -15px; }
-    .rose-top-right { top: -15px; right: -15px; }
-    .rose-bottom-left { bottom: -15px; left: -15px; }
-    .rose-bottom-right { bottom: -15px; right: -15px; }
     h2 {
       color: #8b1c3f;
       margin-bottom: 5px;
@@ -122,21 +107,28 @@
       color: #a14a5d;
       font-weight: normal;
     }
-    .pagination {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .pagination button {
-      margin: 0 5px;
-      padding: 6px 12px;
-      background: #fff;
-      border: 1px solid #f4a1b6;
-      cursor: pointer;
-      color: #8b1c3f;
-    }
-    .pagination button.active {
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      z-index: 999;
+      font-size: 18px;
+      border: none;
+      outline: none;
       background-color: #f191b9;
       color: white;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    #backToTopBtn:hover {
+      background-color: #d96a8c;
+    }
+    html {
+      scroll-behavior: smooth;
     }
     @media (max-width: 768px) {
       .main-container {
@@ -172,31 +164,28 @@
     </aside>
     <main class="journal-container" id="journal-container"></main>
   </div>
+  <button id="backToTopBtn" title="Go to top">↑</button>
   <script>
     const entries = [
-      
-   {
-  date: 'June 17, 2025',
-  time: '11:26 AM',
-  title: '🎀More Than Friends',
-  content: `
-    <p><strong>Location:</strong> Physically New York -- Virtually -- Pokhara</p>
-    <p>Tonight, we made a quiet promise</p>
-    <p>Not to walk away, not to own each other... but to stay — as we are. Not just friends. More than friends.</p>
-    <p>She shared her scars with me — how anxiety and depression once pushed her close to the edge. How it was Nishan who reached out his hand and pulled her back.</p>
-    <p>And I listened. With love, not ego. With respect, not jealousy.</p>
-    <p>Because I know... if Nishan hadn't saved her, maybe I would never have met the version of her I now carry in my heart.</p>
-    <p>She cried tonight. Not because she was broken— but because she knew how much I cared. She said my support, my words, my presence — had meaning in the short time.</p>
-    <p>And I—I told her the truth. That emotions had started pulling us toward the path where boundaries began to blur. But I chose to step back — not away. To protect the love that saved her, and still hold the space for the love we found.</p>
-    <p>She said: <i>"You’re still here… and I don’t need anyone else if I have your presence."</i></p>
-    <p>And I knew — this is Boundless Love.</p>
-    <p>We don't need a future built on promises. We have a present built on truth.</p>
-    <p>We continue — as soul companions, as laughter in sorrow, as quiet warmth in the cold. Not lovers. Not just friends. But something deeper — more than friends.</p>
-  `
-}
-
-
-      
+  {
+    date: 'June 17, 2025',
+    time: '11:26 AM',
+    title: '🎀More Than Friends',
+    content: `
+      <p><strong>Location:</strong> Physically New York -- Virtually -- Pokhara</p>
+      <p>Tonight, we made a quiet promise</p>
+      <p>Not to walk away, not to own each other... but to stay — as we are. Not just friends. More than friends.</p>
+      <p>She shared her scars with me — how anxiety and depression once pushed her close to the edge. How it was Nishan who reached out his hand and pulled her back.</p>
+      <p>And I listened. With love, not ego. With respect, not jealousy.</p>
+      <p>Because I know... if Nishan hadn't saved her, maybe I would never have met the version of her I now carry in my heart.</p>
+      <p>She cried tonight. Not because she was broken— but because she knew how much I cared. She said my support, my words, my presence — had meaning in the short time.</p>
+      <p>And I—I told her the truth. That emotions had started pulling us toward the path where boundaries began to blur. But I chose to step back — not away. To protect the love that saved her, and still hold the space for the love we found.</p>
+      <p>She said: <i>"You’re still here… and I don’t need anyone else if I have your presence."</i></p>
+      <p>And I knew — this is Boundless Love.</p>
+      <p>We don't need a future built on promises. We have a present built on truth.</p>
+      <p>We continue — as soul companions, as laughter in sorrow, as quiet warmth in the cold. Not lovers. Not just friends. But something deeper — more than friends.</p>
+    `
+  },
   {
     date: 'June 7, 2025',
     time: '2:00 PM',
@@ -270,12 +259,21 @@
     `
   }
 ];
-    function renderEntries(page = 1) {
+
+    function formatDateId(dateStr) {
+      return dateStr.toLowerCase().replace(/[,]/g, '').replace(/\s+/g, '-');
+    }
+
+    entries.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    function renderEntries() {
       const container = document.getElementById('journal-container');
       container.innerHTML = '';
       entries.forEach(entry => {
+        const entryId = formatDateId(entry.date);
         const div = document.createElement('div');
         div.className = 'journal-entry';
+        div.id = entryId;
         div.innerHTML = `
           <h2>${entry.title}</h2>
           <h4>${entry.date}${entry.time ? ' – ' + entry.time : ''}</h4>
@@ -284,10 +282,45 @@
         container.appendChild(div);
       });
     }
+
     function renderSidebar() {
       const sidebar = document.getElementById('date-toggle-menu');
-      sidebar.innerHTML = '<ul>' + entries.map(e => `<li><a href="#">${e.date}</a></li>`).join('') + '</ul>';
+      sidebar.innerHTML = `
+        <details open>
+          <summary>📅 By Date</summary>
+          <ul>
+            ${entries.map(e => `<li><a href="#${formatDateId(e.date)}">${e.date}</a></li>`).join('')}
+          </ul>
+        </details>
+        <details>
+          <summary>⭐ Favorites</summary>
+          <ul>
+            <li><a href="#june-17-2025">🎀 More Than Friends</a></li>
+            <li><a href="#june-7-2025">📓 Boundless Love</a></li>
+          </ul>
+        </details>
+        <details>
+          <summary>🔥 Most Visited</summary>
+          <ul>
+            <li><a href="#may-25-2025">🌸 Today’s Journal</a></li>
+          </ul>
+        </details>
+      `;
     }
+
+    // Back to Top functionality
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     renderEntries();
     renderSidebar();
   </script>

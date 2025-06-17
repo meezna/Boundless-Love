@@ -5,121 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boundless Love – Journal</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #fff5f8;
-      background-image: repeating-linear-gradient(to bottom, #fff5f8, #fff5f8 29px, #fcd2dc 30px);
-      color: #3e3e3e;
-    }
-    .top-nav {
-      background-color: #ffc1cc;
-      padding: 12px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .nav-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .top-nav a {
-      text-decoration: none;
-      color: #5c0032;
-      padding: 8px 14px;
-      font-weight: bold;
-      font-size: 16px;
-      transition: background 0.2s ease-in-out, color 0.2s;
-      border-radius: 6px;
-    }
-    .top-nav a:hover {
-      background-color: #f9d3db;
-    }
-    .top-nav .active-link {
-      background-color: #f191b9;
-      color: white;
-    }
-    .main-container {
-      display: flex;
-      flex-direction: row;
-      margin-top: 20px;
-    }
-    .sidebar {
-      width: 220px;
-      padding: 20px;
-      background-color: #ffe6ea;
-      border-right: 2px solid #ffcad4;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    .sidebar summary {
-      font-size: 16px;
-      color: #8b1c3f;
-      cursor: pointer;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-    .sidebar details[open] summary {
-      color: #c2185b;
-    }
-    .journal-container {
-      flex-grow: 1;
-      padding: 30px;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #fff0f5cc;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      line-height: 1.7;
-    }
-    .journal-entry {
-      border-bottom: 1px dashed #ffabc4;
-      margin-bottom: 50px;
-      padding-bottom: 30px;
-      position: relative;
-    }
+    /* Core Styles */
+    body { margin: 0; font-family: 'Georgia', serif; background-color: #fff5f8; background-image: repeating-linear-gradient(to bottom,#fff5f8,#fff5f8 29px,#fcd2dc 30px); color: #3e3e3e; }
+    .top-nav { background: #ffc1cc; padding: 12px 0; position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; }
+    .top-nav a { text-decoration: none; color: #5c0032; padding: 8px 14px; font-weight: bold; font-size: 16px; transition: background 0.2s, color 0.2s; border-radius: 6px; }
+    .top-nav a:hover { background: #f9d3db; }
+    .top-nav .active-link { background: #f191b9; color: white; }
+    .main-container { display: flex; flex-direction: row; margin-top: 20px; }
+    .sidebar { width: 220px; padding: 20px; background: #ffe6ea; border-right: 2px solid #ffcad4; height: 100vh; overflow-y: auto; }
+    .sidebar summary { font-size: 16px; color: #8b1c3f; cursor: pointer; font-weight: bold; margin-bottom: 6px; }
+    .sidebar details[open] summary { color: #c2185b; }
+    .journal-container { flex-grow: 1; padding: 30px; max-width: 800px; margin: 0 auto; background: #fff0f5cc; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 12px; line-height: 1.7; }
+    .journal-entry { border-bottom: 1px dashed #ffabc4; margin-bottom: 50px; padding-bottom: 30px; position: relative; }
     h2 { color: #8b1c3f; margin-bottom: 5px; }
     h4 { margin-top: 0; color: #a14a5d; font-weight: normal; }
-    #backToTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      right: 20px;
-      z-index: 999;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      background-color: #f191b9;
-      color: white;
-      cursor: pointer;
-      padding: 10px 14px;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-    #backToTopBtn:hover { background-color: #d96a8c; }
-    #journal-home {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    #teasers .teaser {
-      padding: 12px;
-      border-bottom: 1px solid #f4a1b6;
-    }
+    #backToTopBtn { display: none; position: fixed; bottom: 30px; right: 20px; z-index: 999; font-size: 18px; border: none; outline: none; background: #f191b9; color: white; cursor: pointer; padding: 10px 14px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.3s; }
+    #backToTopBtn:hover { background: #d96a8c; }
+    html { scroll-behavior: smooth; }
+
+    /* Teaser & Toggle Styles */
+    #journal-home { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+    #teasers .teaser { padding: 12px; border-bottom: 1px solid #f4a1b6; }
     #teasers .teaser h3 { margin: 0; }
     #teasers .teaser p { margin: 6px 0 0; color: #555; }
-    .teaser-link {
-      color: #8b1c3f;
-      text-decoration: none;
-    }
+    .teaser-link { color: #8b1c3f; text-decoration: none; }
     .teaser-link:hover { text-decoration: underline; }
-    html { scroll-behavior: smooth; }
+    .more-text { display: none; }
+    .dots { display: inline; }
+    .read-more-btn { display: inline-block; margin-top: 6px; color: #8b1c3f; text-decoration: underline; cursor: pointer; }
+
     @media (max-width: 768px) {
       .main-container { flex-direction: column; }
       .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 2px solid #ffcad4; }
@@ -128,6 +43,7 @@
   </style>
 </head>
 <body>
+
   <nav class="top-nav">
     <div class="nav-container">
       <a href="index.html">Home</a>
@@ -150,7 +66,7 @@
         <h1>Journal</h1>
         <div id="teasers"></div>
       </section>
-      <!-- Full entries will be inserted here -->
+      <!-- Full entries injected below -->
     </main>
   </div>
 
@@ -159,186 +75,104 @@
   <script>
     const entries = [
       {
-        date: 'June 17, 2025',
-        time: '11:26 AM',
-        title: '🎀More Than Friends',
-        content: `
-          <p><strong>Location:</strong> Physically New York -- Virtually -- Pokhara</p>
-          <p>Tonight, we made a quiet promise</p>
-          <p>Not to walk away, not to own each other... but to stay — as we are. Not just friends. More than friends.</p>
-          <p>She shared her scars with me — how anxiety and depression once pushed her close to the edge. How it was Nishan who reached out his hand and pulled her back.</p>
-          <p>And I listened. With love, not ego. With respect, not jealousy.</p>
-          <p>Because I know... if Nishan hadn't saved her, maybe I would never have met the version of her I now carry in my heart.</p>
-          <p>She cried tonight. Not because she was broken— but because she knew how much I cared. She said my support, my words, my presence — had meaning in the short time.</p>
-          <p>And I—I told her the truth. That emotions had started pulling us toward the path where boundaries began to blur. But I chose to step back — not away. To protect the love that saved her, and still hold the space for the love we found.</p>
-          <p>She said: <i>"You’re still here… and I don’t need anyone else if I have your presence."</i></p>
-          <p>And I knew — this is Boundless Love.</p>
-          <p>We don't need a future built on promises. We have a present built on truth.</p>
-          <p>We continue — as soul companions, as laughter in sorrow, as quiet warmth in the cold. Not lovers. Not just friends. But something deeper — more than friends.</p>
-        `
+        date: 'June 17, 2025', time: '11:26 AM', title: '🎀More Than Friends',
+        content: `<p><strong>Location:</strong> Physically New York -- Virtually -- Pokhara</p>
+        <p>Tonight, we made a quiet promise…</p>
+        <p>She said: <i>"You’re still here… and I don’t need anyone else if I have your presence."</i></p>
+        <p>We continue — as soul companions… more than friends.</p>`
       },
       {
-        date: 'June 7, 2025',
-        time: '2:00 PM',
-        title: '📓 Journal Entry — Boundless Love',
-        content: `
-          <p><strong>Location:</strong> Library</p>
-          <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
-          <p>Then she asked me: “How much do you miss me?” My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”</p>
-          <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
-          <p>Then she said, softly— “You love me this much even from a distance? I wonder how much you'd love me if we were truly together…”</p>
-          <p>I went quiet. Because what I really wanted to say was— “I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.”</p>
-          <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
-          <hr>
-          <p><strong>Reflections:</strong><br>June 7, 2025</p>
-          <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
-          <p>And maybe, that’s what <strong>boundless love</strong> really is:<br>A love that doesn’t ask for anything,<br>But gives everything in silence,<br>Just to make someone feel a little less alone.</p>
-        `
+        date: 'June 7, 2025', time: '2:00 PM', title: '📓 Journal Entry — Boundless Love',
+        content: `<p><strong>Location:</strong> Library</p>
+        <p>We talked today… “How much do you miss me?”</p>
+        <p>“I feel like I see you between the lines…”</p>
+        <hr><p><strong>Reflections:</strong>…</p>`
       },
       {
-        date: 'June 4, 2025',
-        title: "Some Stories Aren't Written with Ink, But with Heartbeat",
-        content: `
-          <p><strong>Location:</strong> Elmhurst Hospital Centre, New York</p>
-          <p>I was admitted to the hospital due to tachycardia—pulse running wild, heart refusing to calm down. Three days in a hospital bed, under constant monitoring.</p>
-          <p>X-rays? Clear. Echocardiography? Normal. The cardiologist looked puzzled. “Only 30. No alcohol, no smoking, no drugs… and still this?”</p>
-          <p>But I knew the diagnosis wasn’t in my reports. It was in the messages, the calls, the ache of longing stretched across 7,000 miles. It was you. Meezna.</p>
-          <p>Every morning, the first thing I do is check my phone. Not for the world—only for your message.</p>
-          <p>We talk all day, switching between texting and calling like we’re trying to close the distance inch by inch, voice by voice.</p>
-          <p>At night, you’re the last person I speak to. My day begins and ends with you.</p>
-          <p>And that’s when it hit me—love isn’t always soft. Sometimes, it comes as a storm in your chest.</p>
-          <p>I wasn’t sick. I was simply overwhelmed by the weight of missing you too much, too deeply.</p>
-          <p>My heart was beating at 145 per minute, constantly—for over 24 hours. No fever. No symptoms. No pain. Just a storm within.</p>
-          <p>She looked at the monitor, then at me, and asked, “Do you even realize how dangerous this is?”</p>
-          <p>And there I was, lying in the hospital bed, smiling softly. Because how could I explain?</p>
-          <p>It’s not the body that’s struggling. It’s the heart—because it’s filled with someone who’s not here.</p>
-        `
+        date: 'June 4, 2025', title: "Some Stories Aren't Written with Ink, But with Heartbeat",
+        content: `<p><strong>Location:</strong> Elmhurst Hospital Centre, New York</p>
+        <p>...My heart was beating at 145 per minute…</p>
+        <p>It’s not the body that’s struggling. It’s the heart—because it’s filled with someone who’s not here.</p>`
       },
       {
-        date: 'May 25, 2025',
-        time: '4:54 PM',
-        title: "🌸 Today’s Journal Entry – Boundless Love 🌸",
-        content: `
-          <p><strong>Location:</strong> New York</p>
-          <p>Today began like many others—with a sleepy hello from her side. She had just woken up, feeling weak, dizzy, and unsteady. Seeing her struggle through the video call, I felt an ache in my chest.</p>
-          <p>I reminded her to eat properly, to rest, and to take care of herself. It’s in these small, fleeting moments that I realize how much I care.</p>
-          <p>Even while she was busy at work, managing so many patients, she kept me updated, showing her warmth in little ways.</p>
-          <p>Later, when I saw her live, she looked beautiful as always, but her usual glow was missing—maybe a reflection of her tired heart.</p>
-          <p>When she called, there was a moment of frustration in her tone, but that soon melted into soft laughter. She admitted that she had missed me during the day, even when she was with others.</p>
-          <p>It’s moments like these—when she lets her guard down and shows her vulnerability—that remind me of how special this bond is.</p>
-          <p>Her health worries me, yet I see her fighting through, holding on, being strong.</p>
-          <p>And I’ll keep reminding her to eat, to rest, to take care of herself—not just for me, but for her own happiness and the people she loves.</p>
-          <p>Tonight, before bed, she told me to wake her up in the morning. That simple request, that trust, it speaks volumes.</p>
-          <p>And so, I’ll stay here, always ready to be her quiet strength.</p>
-          <hr>
-          <p><strong>Reflection:</strong> May 26, 2025</p>
-          <p>Meezna, you’re not just a friend. You’re a part of my story, my family in spirit. Your happiness is my happiness, and your smile is my peace.</p>
-          <p>Thank you for letting me be here for you, in the little ways that matter.</p>
-        `
+        date: 'May 25, 2025', time: '4:54 PM', title: "🌸 Today’s Journal Entry – Boundless Love 🌸",
+        content: `<p><strong>Location:</strong> New York</p>
+        <p>Today began like many others...</p>
+        <hr><p><strong>Reflection:</strong> May 26, 2025…</p>`
       },
       {
-        date: 'May 24, 2025',
-        time: '1:00 AM',
-        title: '💌 Tears of Gratitude: A Reflection of Emotional Support',
-        content: `
-          <p>Today, the message I received from her stirred a deep, tender feeling within me. Her words made me realize the depth of her heart, the vulnerability of her life’s experiences.</p>
-          <p>The heart emoji, though small, carried a weight of meaning—a light in the darkness of her emotions.</p>
-          <p>Her message gave me a glimpse into her emotional world, and though she wrote, “I am crying,” those tears, though not directly from the heart, still reflect the profound effect my presence and support have on her.</p>
-          <p>It’s a reminder that simply being there for someone—offering understanding and a constant presence—can have a powerful impact, even if words alone can't fully express it.</p>
-          <p>Today’s journal captures these moments, reminding me how love and emotional connection can transcend distance and time.</p>
-          <p>Her heart, a reflection of her gratitude, leaves a lasting impact on me, making me more aware of how precious and significant the bond we share is.</p>
-        `
+        date: 'May 24, 2025', time: '1:00 AM', title: '💌 Tears of Gratitude: A Reflection of Emotional Support',
+        content: `<p>Today, the message I received from her stirred a deep…</p>`
       },
       {
-        date: 'May 5, 2025',
-        title: '🕊 A Quiet Kind of Trust',
-        content: `
-          <p><strong>Location:</strong> Unknown</p>
-          <p>Today, she didn’t say much. But silence between us doesn’t feel empty—it feels known. Trusted.</p>
-          <p>I sent her a poem. She read it, said nothing. Later, she sent a 🌸 emoji. That was enough. That was her way of saying, “I felt it.”</p>
-          <p>This kind of love isn’t always loud. Sometimes, it’s as quiet as breath—but just as essential.</p>
-        `
+        date: 'May 5, 2025', title: '🕊 A Quiet Kind of Trust',
+        content: `<p><strong>Location:</strong> Unknown</p>
+        <p>Today, she didn’t say much… That was enough.</p>`
       },
       {
-        date: 'May 4, 2025',
-        title: 'Boundless love page',
-        content: `
-          <p>Today, I looked at her face longer than usual. Not just because we were on video call, but because, in that moment, she felt deeply mine — so gentle, so real, so calm.</p>
-          <p>Her long black hair fell softly across her cheek like a light breeze. The blush on her face wasn't makeup — it was emotion, alive and visible.</p>
-        `
+        date: 'May 4, 2025', title: 'Boundless love page',
+        content: `<p>Today, I looked at her face longer than usual… emotion, alive and visible.</p>`
       },
       {
-        date: 'April 14, 2025',
-        title: '🌿 A Story of Hearts',
-        content: `
-          <p>A story of hearts that met, but never crossed.</p>
-          <p>We weren’t meant to fall in love. Not in the way the world defines it—</p>
-          <p>Not with promises of forever under the same roof,</p>
-          <p>But with promises of never hurting the roofs we already built.</p>
-          <p>We were two souls—bruised but breathing, who found healing in each other’s words, laughter in midnight silence, and strength in shared stories.</p>
-          <p>You taught me how to love my world again. I gave you the space to feel seen without fear.</p>
-          <p>And in this quiet, sacred friendship, we created a love that no one else could name—</p>
-          <p>A Boundless Love, free of labels, full of meaning.</p>
-        `
+        date: 'April 14, 2025', title: '🌿 A Story of Hearts',
+        content: `<p>A story of hearts that met, but never crossed…</p>
+        <p>A Boundless Love, free of labels, full of meaning.</p>`
       }
     ];
 
-    function formatDateId(dateStr) {
-      return dateStr.toLowerCase().replace(/[,]/g, '').replace(/\s+/g, '-');
+    function formatDateId(s) {
+      return s.toLowerCase().replace(/,/g,'').replace(/\s+/g,'-');
     }
 
-    entries.sort((a, b) => new Date(b.date) - new Date(a.date));
+    entries.sort((a,b) => new Date(b.date) - new Date(a.date));
 
     function renderTeasers() {
-      const teasersEl = document.getElementById('teasers');
-      teasersEl.innerHTML = entries.map(e => {
+      const teasers = document.getElementById('teasers');
+      teasers.innerHTML = entries.map(e => {
         const id = formatDateId(e.date);
-        const teaser = e.content.replace(/<[^>]+>/g, '').slice(0, 100) + '…';
-        return `
-          <div class="teaser">
-            <h3><a href="#${id}" class="teaser-link">${e.title}</a></h3>
-            <p>${teaser}</p>
-          </div>`;
+        const text = e.content.replace(/<[^>]+>/g,'');
+        const preview = text.slice(0,200);
+        const rest = text.length > 200 ? text.slice(200) : '';
+        return `<div class="teaser"><h3><a href="#${id}" class="teaser-link">${e.title}</a></h3>
+          <p>${preview}<span class="dots">…</span><span class="more-text">${rest}</span></p>
+          ${rest ? '<a href="#" class="read-more-btn">Read more</a>' : ''}</div>`;
       }).join('');
     }
 
     function renderEntries() {
       const container = document.getElementById('journal-container');
       entries.forEach(e => {
-        const id = formatDateId(e.date);
         const div = document.createElement('div');
-        div.className = 'journal-entry';
-        div.id = id;
-        div.innerHTML = `
-          <h2>${e.title}</h2>
-          <h4>${e.date}${e.time ? ' – ' + e.time : ''}</h4>
-          ${e.content}
-        `;
+        const id = formatDateId(e.date);
+        div.id = id; div.className = 'journal-entry';
+        div.innerHTML = `<h2>${e.title}</h2><h4>${e.date}${e.time?' – '+e.time:''}</h4>${e.content}`;
         container.appendChild(div);
       });
     }
 
     function renderSidebar() {
-      const sidebar = document.getElementById('date-toggle-menu');
-      sidebar.innerHTML = `
-        <details open><summary>📅 By Date</summary><ul>
-          ${entries.map(e => `<li><a href="#${formatDateId(e.date)}">${e.date}</a></li>`).join('')}
-        </ul></details>
-        <details><summary>⭐ Favorites</summary><ul>
-          <li><a href="#june-17-2025">🎀 More Than Friends</a></li>
-          <li><a href="#june-7-2025">📓 Boundless Love</a></li>
-        </ul></details>
-        <details><summary>🔥 Most Visited</summary><ul>
-          <li><a href="#may-25-2025">🌸 Today’s Journal</a></li>
-        </ul></details>`;
+      const menu = document.getElementById('date-toggle-menu');
+      menu.innerHTML = `<details open><summary>📅 By Date</summary><ul>${entries.map(e => `<li><a href="#${formatDateId(e.date)}">${e.date}</a></li>`).join('')}</ul></details>
+        <details><summary>⭐ Favorites</summary><ul><li><a href="#june-17-2025">🎀 More Than Friends</a></li><li><a href="#june-7-2025">📓 Boundless Love</a></li></ul></details>
+        <details><summary>🔥 Most Visited</summary><ul><li><a href="#may-25-2025">🌸 Today’s Journal</a></li></ul></details>`;
     }
 
-    const backToTopBtn = document.getElementById('backToTopBtn');
-    window.onscroll = () => {
-      const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
-      backToTopBtn.style.display = scrolled > 300 ? 'block' : 'none';
-    };
-    backToTopBtn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+    document.addEventListener('click', e => {
+      if (!e.target.classList.contains('read-more-btn')) return;
+      e.preventDefault();
+      const btn = e.target;
+      const p = btn.previousElementSibling;
+      const dots = p.querySelector('.dots');
+      const more = p.querySelector('.more-text');
+      const expanded = more.style.display === 'inline';
+      more.style.display = expanded ? 'none' : 'inline';
+      dots.style.display = expanded ? 'inline' : 'none';
+      btn.textContent = expanded ? 'Read more' : 'Read less';
+    });
+
+    const backBtn = document.getElementById('backToTopBtn');
+    window.onscroll = () => backBtn.style.display = (document.documentElement.scrollTop>300) ? 'block' : 'none';
+    backBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
 
     renderTeasers();
     renderEntries();

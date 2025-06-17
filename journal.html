@@ -17,7 +17,6 @@
       );
       color: #3e3e3e;
     }
-
     .top-nav {
       background-color: #ffc1cc;
       padding: 12px 0;
@@ -26,7 +25,6 @@
       z-index: 999;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-
     .nav-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -35,7 +33,6 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
     .top-nav a {
       text-decoration: none;
       color: #5c0032;
@@ -45,22 +42,18 @@
       transition: background 0.2s ease-in-out, color 0.2s;
       border-radius: 6px;
     }
-
     .top-nav a:hover {
       background-color: #f9d3db;
     }
-
     .top-nav .active-link {
       background-color: #f191b9;
       color: white;
     }
-
     .main-container {
       display: flex;
       flex-direction: row;
       margin-top: 20px;
     }
-
     .sidebar {
       width: 220px;
       padding: 20px;
@@ -69,26 +62,21 @@
       height: 100vh;
       overflow-y: auto;
     }
-
     .sidebar h3 {
       font-size: 18px;
       margin-top: 0;
     }
-
     .sidebar ul {
       list-style-type: none;
       padding-left: 10px;
     }
-
     .sidebar li {
       margin-bottom: 8px;
     }
-
     .sidebar a {
       text-decoration: none;
       color: #8b1c3f;
     }
-
     .sidebar summary {
       font-size: 16px;
       color: #8b1c3f;
@@ -96,11 +84,9 @@
       font-weight: bold;
       margin-bottom: 6px;
     }
-
     .sidebar details[open] summary {
       color: #c2185b;
     }
-
     .journal-container {
       flex-grow: 1;
       padding: 30px;
@@ -111,42 +97,35 @@
       border-radius: 12px;
       line-height: 1.7;
     }
-
     .journal-entry {
       border-bottom: 1px dashed #ffabc4;
       margin-bottom: 50px;
       padding-bottom: 30px;
       position: relative;
     }
-
     .rose-icon {
       position: absolute;
       width: 24px;
       height: 24px;
       opacity: 0.9;
     }
-
     .rose-top-left { top: -15px; left: -15px; }
     .rose-top-right { top: -15px; right: -15px; }
     .rose-bottom-left { bottom: -15px; left: -15px; }
     .rose-bottom-right { bottom: -15px; right: -15px; }
-
     h2 {
       color: #8b1c3f;
       margin-bottom: 5px;
     }
-
     h4 {
       margin-top: 0;
       color: #a14a5d;
       font-weight: normal;
     }
-
     .pagination {
       text-align: center;
       margin-top: 30px;
     }
-
     .pagination button {
       margin: 0 5px;
       padding: 6px 12px;
@@ -155,24 +134,20 @@
       cursor: pointer;
       color: #8b1c3f;
     }
-
     .pagination button.active {
       background-color: #f191b9;
       color: white;
     }
-
     @media (max-width: 768px) {
       .main-container {
         flex-direction: column;
       }
-
       .sidebar {
         width: 100%;
         height: auto;
         border-right: none;
         border-bottom: 2px solid #ffcad4;
       }
-
       .journal-container {
         padding: 20px;
       }
@@ -190,96 +165,108 @@
       <a href="journal.html" class="active-link">Journal</a>
     </div>
   </nav>
-
   <div class="main-container">
     <aside class="sidebar">
       <h3>Jump by Date</h3>
       <div id="date-toggle-menu"></div>
     </aside>
-
     <main class="journal-container" id="journal-container"></main>
   </div>
-
   <script>
-    // Journal logic starts here
     const entries = [
-      {
-        date: 'June 7, 2025',
-        time: '2:00 PM',
-        title: '📓 Journal Entry — Boundless Love',
-        content: `
-          <p><strong>Location:</strong> Library</p>
-          <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
-          <p>Then she asked me: “How much do you miss me?” My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”</p>
-          <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
-          <p>Then she said, softly— “You love me this much even from a distance? I wonder how much you'd love me if we were truly together…”</p>
-          <p>I went quiet. Because what I really wanted to say was— “I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.”</p>
-          <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
-          <hr>
-          <p><strong>Reflections:</strong><br>June 7, 2025</p>
-          <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
-          <p>And maybe, that’s what <strong>boundless love</strong> really is:<br>A love that doesn’t ask for anything,<br>But gives everything in silence,<br>Just to make someone feel a little less alone.</p>
-        `
-      },
-      {
-        date: 'June 4, 2025',
-        title: "Some Stories Aren't Written with Ink, But with Heartbeat",
-        content: `
-          <p><strong>Location:</strong> Elmhurst Hospital Centre, New York</p>
-          <p>I was admitted to the hospital due to tachycardia—pulse running wild, heart refusing to calm down. Three days in a hospital bed, under constant monitoring.</p>
-          <p>X-rays? Clear. Echocardiography? Normal. The cardiologist looked puzzled. “Only 30. No alcohol, no smoking, no drugs… and still this?”</p>
-          <p>But I knew the diagnosis wasn’t in my reports. It was in the messages, the calls, the ache of longing stretched across 7,000 miles. It was you. Meezna.</p>
-          <p>Every morning, the first thing I do is check my phone. Not for the world—only for your message.</p>
-          <p>We talk all day, switching between texting and calling like we’re trying to close the distance inch by inch, voice by voice.</p>
-          <p>At night, you’re the last person I speak to. My day begins and ends with you.</p>
-          <p>And that’s when it hit me—love isn’t always soft. Sometimes, it comes as a storm in your chest.</p>
-          <p>I wasn’t sick. I was simply overwhelmed by the weight of missing you too much, too deeply.</p>
-          <p>My heart was beating at 145 per minute, constantly—for over 24 hours. No fever. No symptoms. No pain. Just a storm within.</p>
-          <p>She looked at the monitor, then at me, and asked, “Do you even realize how dangerous this is?”</p>
-          <p>And there I was, lying in the hospital bed, smiling softly. Because how could I explain?</p>
-          <p>It’s not the body that’s struggling. It’s the heart—because it’s filled with someone who’s not here.</p>
-        `
-      },
-      {
-        date: 'May 25, 2025',
-        time: '4:54 PM',
-        title: "🌸 Today’s Journal Entry – Boundless Love 🌸",
-        content: `
-          <p><strong>Location:</strong> New York</p>
-          <p>Today began like many others—with a sleepy hello from her side. She had just woken up, feeling weak, dizzy, and unsteady. Seeing her struggle through the video call, I felt an ache in my chest.</p>
-          <p>I reminded her to eat properly, to rest, and to take care of herself. It’s in these small, fleeting moments that I realize how much I care.</p>
-          <p>Even while she was busy at work, managing so many patients, she kept me updated, showing her warmth in little ways.</p>
-          <p>Later, when I saw her live, she looked beautiful as always, but her usual glow was missing—maybe a reflection of her tired heart.</p>
-          <p>When she called, there was a moment of frustration in her tone, but that soon melted into soft laughter. She admitted that she had missed me during the day, even when she was with others.</p>
-          <p>It’s moments like these—when she lets her guard down and shows her vulnerability—that remind me of how special this bond is.</p>
-          <p>Her health worries me, yet I see her fighting through, holding on, being strong.</p>
-          <p>And I’ll keep reminding her to eat, to rest, to take care of herself—not just for me, but for her own happiness and the people she loves.</p>
-          <p>Tonight, before bed, she told me to wake her up in the morning. That simple request, that trust, it speaks volumes.</p>
-          <p>And so, I’ll stay here, always ready to be her quiet strength.</p>
-          <hr>
-          <p><strong>Reflection:</strong> May 26, 2025</p>
-          <p>Meezna, you’re not just a friend. You’re a part of my story, my family in spirit. Your happiness is my happiness, and your smile is my peace.</p>
-          <p>Thank you for letting me be here for you, in the little ways that matter.</p>
-        `
-      },
-      {
-        date: 'May 24, 2025',
-        time: '1:00 AM',
-        title: '💌 Tears of Gratitude: A Reflection of Emotional Support',
-        content: `
-          <p>Today, the message I received from her stirred a deep, tender feeling within me. Her words made me realize the depth of her heart, the vulnerability of her life’s experiences.</p>
-          <p>The heart emoji, though small, carried a weight of meaning—a light in the darkness of her emotions.</p>
-          <p>Her message gave me a glimpse into her emotional world, and though she wrote, “I am crying,” those tears, though not directly from the heart, still reflect the profound effect my presence and support have on her.</p>
-          <p>It’s a reminder that simply being there for someone—offering understanding and a constant presence—can have a powerful impact, even if words alone can't fully express it.</p>
-          <p>Today’s journal captures these moments, reminding me how love and emotional connection can transcend distance and time.</p>
-          <p>Her heart, a reflection of her gratitude, leaves a lasting impact on me, making me more aware of how precious and significant the bond we share is.</p>
-        `
-      }
-    ];
-
-    renderEntries(currentPage);
+  {
+    date: 'June 7, 2025',
+    time: '2:00 PM',
+    title: '📓 Journal Entry — Boundless Love',
+    content: `
+      <p><strong>Location:</strong> Library</p>
+      <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
+      <p>Then she asked me: “How much do you miss me?” My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”</p>
+      <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
+      <p>Then she said, softly— “You love me this much even from a distance? I wonder how much you'd love me if we were truly together…”</p>
+      <p>I went quiet. Because what I really wanted to say was— “I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.”</p>
+      <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
+      <hr>
+      <p><strong>Reflections:</strong><br>June 7, 2025</p>
+      <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
+      <p>And maybe, that’s what <strong>boundless love</strong> really is:<br>A love that doesn’t ask for anything,<br>But gives everything in silence,<br>Just to make someone feel a little less alone.</p>
+    `
+  },
+  {
+    date: 'June 4, 2025',
+    title: "Some Stories Aren't Written with Ink, But with Heartbeat",
+    content: `
+      <p><strong>Location:</strong> Elmhurst Hospital Centre, New York</p>
+      <p>I was admitted to the hospital due to tachycardia—pulse running wild, heart refusing to calm down. Three days in a hospital bed, under constant monitoring.</p>
+      <p>X-rays? Clear. Echocardiography? Normal. The cardiologist looked puzzled. “Only 30. No alcohol, no smoking, no drugs… and still this?”</p>
+      <p>But I knew the diagnosis wasn’t in my reports. It was in the messages, the calls, the ache of longing stretched across 7,000 miles. It was you. Meezna.</p>
+      <p>Every morning, the first thing I do is check my phone. Not for the world—only for your message.</p>
+      <p>We talk all day, switching between texting and calling like we’re trying to close the distance inch by inch, voice by voice.</p>
+      <p>At night, you’re the last person I speak to. My day begins and ends with you.</p>
+      <p>And that’s when it hit me—love isn’t always soft. Sometimes, it comes as a storm in your chest.</p>
+      <p>I wasn’t sick. I was simply overwhelmed by the weight of missing you too much, too deeply.</p>
+      <p>My heart was beating at 145 per minute, constantly—for over 24 hours. No fever. No symptoms. No pain. Just a storm within.</p>
+      <p>She looked at the monitor, then at me, and asked, “Do you even realize how dangerous this is?”</p>
+      <p>And there I was, lying in the hospital bed, smiling softly. Because how could I explain?</p>
+      <p>It’s not the body that’s struggling. It’s the heart—because it’s filled with someone who’s not here.</p>
+    `
+  },
+  {
+    date: 'May 25, 2025',
+    time: '4:54 PM',
+    title: "🌸 Today’s Journal Entry – Boundless Love 🌸",
+    content: `
+      <p><strong>Location:</strong> New York</p>
+      <p>Today began like many others—with a sleepy hello from her side. She had just woken up, feeling weak, dizzy, and unsteady. Seeing her struggle through the video call, I felt an ache in my chest.</p>
+      <p>I reminded her to eat properly, to rest, and to take care of herself. It’s in these small, fleeting moments that I realize how much I care.</p>
+      <p>Even while she was busy at work, managing so many patients, she kept me updated, showing her warmth in little ways.</p>
+      <p>Later, when I saw her live, she looked beautiful as always, but her usual glow was missing—maybe a reflection of her tired heart.</p>
+      <p>When she called, there was a moment of frustration in her tone, but that soon melted into soft laughter. She admitted that she had missed me during the day, even when she was with others.</p>
+      <p>It’s moments like these—when she lets her guard down and shows her vulnerability—that remind me of how special this bond is.</p>
+      <p>Her health worries me, yet I see her fighting through, holding on, being strong.</p>
+      <p>And I’ll keep reminding her to eat, to rest, to take care of herself—not just for me, but for her own happiness and the people she loves.</p>
+      <p>Tonight, before bed, she told me to wake her up in the morning. That simple request, that trust, it speaks volumes.</p>
+      <p>And so, I’ll stay here, always ready to be her quiet strength.</p>
+      <hr>
+      <p><strong>Reflection:</strong> May 26, 2025</p>
+      <p>Meezna, you’re not just a friend. You’re a part of my story, my family in spirit. Your happiness is my happiness, and your smile is my peace.</p>
+      <p>Thank you for letting me be here for you, in the little ways that matter.</p>
+    `
+  },
+  {
+    date: 'May 24, 2025',
+    time: '1:00 AM',
+    title: '💌 Tears of Gratitude: A Reflection of Emotional Support',
+    content: `
+      <p>Today, the message I received from her stirred a deep, tender feeling within me. Her words made me realize the depth of her heart, the vulnerability of her life’s experiences.</p>
+      <p>The heart emoji, though small, carried a weight of meaning—a light in the darkness of her emotions.</p>
+      <p>Her message gave me a glimpse into her emotional world, and though she wrote, “I am crying,” those tears, though not directly from the heart, still reflect the profound effect my presence and support have on her.</p>
+      <p>It’s a reminder that simply being there for someone—offering understanding and a constant presence—can have a powerful impact, even if words alone can't fully express it.</p>
+      <p>Today’s journal captures these moments, reminding me how love and emotional connection can transcend distance and time.</p>
+      <p>Her heart, a reflection of her gratitude, leaves a lasting impact on me, making me more aware of how precious and significant the bond we share is.</p>
+    `
+  }
+];
+    function renderEntries(page = 1) {
+      const container = document.getElementById('journal-container');
+      container.innerHTML = '';
+      entries.forEach(entry => {
+        const div = document.createElement('div');
+        div.className = 'journal-entry';
+        div.innerHTML = `
+          <h2>${entry.title}</h2>
+          <h4>${entry.date}${entry.time ? ' – ' + entry.time : ''}</h4>
+          ${entry.content}
+        `;
+        container.appendChild(div);
+      });
+    }
+    function renderSidebar() {
+      const sidebar = document.getElementById('date-toggle-menu');
+      sidebar.innerHTML = '<ul>' + entries.map(e => `<li><a href="#">${e.date}</a></li>`).join('') + '</ul>';
+    }
+    renderEntries();
     renderSidebar();
-
   </script>
 </body>
 </html>

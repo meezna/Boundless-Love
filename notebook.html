@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notebook – Boundless Love</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fff0f5;
+      background-image: url('https://i.imgur.com/Ke3uPN1.jpg'); /* floral bg */
+      background-size: cover;
+      background-attachment: fixed;
+      color: #3e3e3e;
+    }
+
+    .top-nav {
+      background-color: #ffc1cc;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .nav-container a {
+      text-decoration: none;
+      color: #3e3e3e;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-sidebar {
+      width: 220px;
+      border-right: 1px dashed #ddd;
+      padding: 10px;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .left-sidebar h3 {
+      font-size: 18px;
+      color: #c71585;
+      margin-bottom: 10px;
+    }
+
+    .left-sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .left-sidebar ul li {
+      margin-bottom: 8px;
+    }
+
+    .left-sidebar ul li a {
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .left-sidebar ul li a:hover {
+      color: #c71585;
+      font-weight: bold;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      background: #fffafc;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        #fffafc,
+        #fffafc 29px,
+        #fcd2dc 30px
+      );
+      border-radius: 0 12px 12px 0;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .entry {
+      margin-bottom: 40px;
+    }
+
+    .entry h4 {
+      margin: 0;
+      color: #d63384;
+    }
+
+    .entry p {
+      margin-top: 10px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px dashed #ddd;
+        max-height: none;
+      }
+      .main-content {
+        border-radius: 0 0 12px 12px;
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <div class="nav-container">
+      <a href="index.html">Home</a>
+      <a href="#">Daily Journal</a>
+      <a href="notebook.html">Notebook</a>
+      <a href="#">Poems</a>
+      <a href="#">Ghazal</a>
+    </div>
+  </div>
+
+  <!-- Main Notebook Container -->
+  <div class="container">
+    <!-- Left Sidebar - Date Navigation -->
+    <div class="left-sidebar">
+      <h3>📅 Dates</h3>
+      <ul>
+        <li><a href="#jun18">June 18, 2025</a></li>
+        <li><a href="#jun17">June 17, 2025</a></li>
+        <li><a href="#jun16">June 16, 2025</a></li>
+        <li><a href="#jun15">June 15, 2025</a></li>
+        <!-- add more as needed -->
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      
+      <div class="entry" id="jun18">
+        <h4>June 18, 2025</h4>
+        <p>
+          "Kati bhagyamani cha tyo chiya khane cup — baru timro oth ko sparsha garna pauxa daily... 
+          Ma ta samjhini matra ta ho..."
+        </p>
+      </div>
+
+      <div class="entry" id="jun17">
+        <h4>June 17, 2025</h4>
+        <p>
+          Today she smiled... and for a moment, the whole world melted away.
+        </p>
+      </div>
+
+      <div class="entry" id="jun16">
+        <h4>June 16, 2025</h4>
+        <p>
+          I wrote yet another letter, one I may never send... but in words, I find you close.
+        </p>
+      </div>
+
+      <div class="entry" id="jun15">
+        <h4>June 15, 2025</h4>
+        <p>
+          Her voice — my favorite song. Her laughter — my favorite memory.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

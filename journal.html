@@ -1,466 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boundless Love – Journal</title>
-    <style>
-        /* Core Styles */
-        body { margin: 0; font-family: 'Georgia', serif; background-color: #fff5f8; background-image: repeating-linear-gradient(to bottom,#fff5f8,#fff5f8 29px,#fcd2dc 30px); color: #3e3e3e; }
-        .top-nav { background: #ffc1cc; padding: 12px 0; position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; }
-        .top-nav a { text-decoration: none; color: #5c0032; padding: 8px 14px; font-weight: bold; font-size: 16px; transition: background 0.2s, color 0.2s; border-radius: 6px; }
-        .top-nav a:hover { background: #f9d3db; }
-        .top-nav .active-link { background: #f191b9; color: white; }
-        .main-container { display: flex; flex-direction: row; margin-top: 20px; }
-        .sidebar { width: 220px; padding: 20px; background: #ffe6ea; border-right: 2px solid #ffcad4; height: 100vh; overflow-y: auto; position: sticky; top: 70px; }
-        .sidebar h3 { color: #8b1c3f; }
-        .sidebar summary { font-size: 16px; color: #8b1c3f; cursor: pointer; font-weight: bold; margin-bottom: 6px; }
-        .sidebar details[open] summary { color: #c2185b; }
-        .sidebar ul { list-style: none; padding: 0; margin: 0; }
-        .sidebar li a { display: block; padding: 6px 0; color: #5c0032; text-decoration: none; transition: background 0.2s; border-radius: 4px; }
-        .sidebar li a:hover { background: #ffcad4; padding-left: 8px; }
-        .journal-container { flex-grow: 1; padding: 30px; max-width: 800px; margin: 0 auto; background: #fff0f5cc; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 12px; line-height: 1.7; }
-        .journal-entry { border-bottom: 1px dashed #ffabc4; margin-bottom: 50px; padding-bottom: 30px; position: relative; }
-        h2 { color: #8b1c3f; margin-bottom: 5px; }
-        h4 { margin-top: 0; color: #a14a5d; font-weight: normal; }
-        #backToTopBtn { display: none; position: fixed; bottom: 30px; right: 20px; z-index: 999; font-size: 18px; border: none; outline: none; background: #f191b9; color: white; cursor: pointer; padding: 10px 14px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.3s; }
-        #backToTopBtn:hover { background: #d96a8c; }
-        html { scroll-behavior: smooth; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boundless Love – Journal</title>
+    <style>
+        /* Core Styles */
+        body { margin: 0; font-family: 'Georgia', serif; background-color: #fff5f8; background-image: repeating-linear-gradient(to bottom,#fff5f8,#fff5f8 29px,#fcd2dc 30px); color: #3e3e3e; }
+        .top-nav { background: #ffc1cc; padding: 12px 0; position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; }
+        .top-nav a { text-decoration: none; color: #5c0032; padding: 8px 14px; font-weight: bold; font-size: 16px; transition: background 0.2s, color 0.2s; border-radius: 6px; }
+        .top-nav a:hover { background: #f9d3db; }
+        .top-nav .active-link { background: #f191b9; color: white; }
+        .main-container { display: flex; flex-direction: row; margin-top: 20px; }
+        .sidebar { width: 220px; padding: 20px; background: #ffe6ea; border-right: 2px solid #ffcad4; height: 100vh; overflow-y: auto; position: sticky; top: 70px; }
+        .sidebar h3 { color: #8b1c3f; }
+        .sidebar summary { font-size: 16px; color: #8b1c3f; cursor: pointer; font-weight: bold; margin-bottom: 6px; }
+        .sidebar details[open] summary { color: #c2185b; }
+        .sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar li a { display: block; padding: 6px 0; color: #5c0032; text-decoration: none; transition: background 0.2s; border-radius: 4px; }
+        .sidebar li a:hover { background: #ffcad4; padding-left: 8px; }
+        .journal-container { flex-grow: 1; padding: 30px; max-width: 800px; margin: 0 auto; background: #fff0f5cc; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 12px; line-height: 1.7; }
+        .journal-entry { border-bottom: 1px dashed #ffabc4; margin-bottom: 50px; padding-bottom: 30px; position: relative; }
+        h2 { color: #8b1c3f; margin-bottom: 5px; }
+        h4 { margin-top: 0; color: #a14a5d; font-weight: normal; }
+        #backToTopBtn { display: none; position: fixed; bottom: 30px; right: 20px; z-index: 999; font-size: 18px; border: none; outline: none; background: #f191b9; color: white; cursor: pointer; padding: 10px 14px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.3s; }
+        #backToTopBtn:hover { background: #d96a8c; }
+        html { scroll-behavior: smooth; }
 
-        /* Teaser & Toggle Styles */
-        #journal-home { max-width: 800px; margin: 30px auto; padding: 0 20px; }
-        #teasers .teaser { padding: 12px; border-bottom: 1px solid #f4a1b6; }
-        #teasers .teaser h3 { margin: 0; }
-        #teasers .teaser p { margin: 6px 0 0; color: #555; }
-        .teaser-link { color: #8b1c3f; text-decoration: none; }
-        .teaser-link:hover { text-decoration: underline; }
-        .more-text { display: none; }
-        .dots { display: inline; }
-        .read-more-btn { display: inline-block; margin-top: 6px; color: #8b1c3f; text-decoration: underline; cursor: pointer; }
-        
-        /* Pagination Styles */
-        .pagination-controls { text-align: center; margin-top: 20px; }
-        .pagination-btn { background: #f191b9; color: white; border: none; padding: 10px 15px; margin: 0 5px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
-        .pagination-btn:hover:not(:disabled) { background: #d96a8c; }
-        .pagination-btn:disabled { background: #ffcad4; cursor: not-allowed; }
+        /* Teaser & Toggle Styles */
+        #journal-home { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+        #teasers .teaser { padding: 12px; border-bottom: 1px solid #f4a1b6; }
+        #teasers .teaser h3 { margin: 0; }
+        #teasers .teaser p { margin: 6px 0 0; color: #555; }
+        .teaser-link { color: #8b1c3f; text-decoration: none; }
+        .teaser-link:hover { text-decoration: underline; }
+        .more-text { display: none; }
+        .dots { display: inline; }
+        .read-more-btn { display: inline-block; margin-top: 6px; color: #8b1c3f; text-decoration: underline; cursor: pointer; }
+        
+        /* Pagination Styles */
+        .pagination-controls { text-align: center; margin-top: 20px; }
+        .pagination-btn { background: #f191b9; color: white; border: none; padding: 10px 15px; margin: 0 5px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        .pagination-btn:hover:not(:disabled) { background: #d96a8c; }
+        .pagination-btn:disabled { background: #ffcad4; cursor: not-allowed; }
 
-        @media (max-width: 768px) {
-            .main-container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 2px solid #ffcad4; position: static; }
-            .journal-container { padding: 20px; }
-        }
-    </style>
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 2px solid #ffcad4; position: static; }
+            .journal-container { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <div class="nav-container">
-            <a href="index.html">Home</a>
-            <a href="poems.html">Poems</a>
-            <a href="notebook.html">✍My Notebook✍</a>
-            <a href="ghazal.html">Ghazal</a>
-            <a href="shabda.html">Shabda</a>
-            <a href="journal.html" class="active-link">Journal</a>
-        </div>
-    </nav>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html">Home</a>
+            <a href="poems.html">Poems</a>
+            <a href="notebook.html">✍My Notebook✍</a>
+            <a href="ghazal.html">Ghazal</a>
+            <a href="shabda.html">Shabda</a>
+            <a href="journal.html" class="active-link">Journal</a>
+        </div>
+    </nav>
 
-    <div class="main-container">
-        <aside class="sidebar">
-            <h3>Jump by Date</h3>
-            <div id="date-toggle-menu"></div>
-        </aside>
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Jump by Date</h3>
+            <div id="date-toggle-menu"></div>
+        </aside>
 
-        <main class="journal-container" id="journal-container">
-            <section id="journal-home">
-                <h1>Journal</h1>
-                <div id="teasers"></div>
-            </section>
-        </main>
-    </div>
+        <main class="journal-container" id="journal-container">
+            <section id="journal-home">
+                <h1>Journal</h1>
+                <div id="teasers"></div>
+            </section>
+        </main>
+    </div>
 
-    <button id="backToTopBtn" title="Go to top">↑</button>
+    <button id="backToTopBtn" title="Go to top">↑</button>
 
-    <script>
-        const entries = [
-            {
-                date: 'July 31, 2025',
-                time: '00:27 AM',
-                title: '✉📨Love Letter✉📨',
-                content: `
-                    <h1> Dear Meezna</h1>
-                    long memories on these short days,
+    <script>
+        const entries = [
+            {
+                date: 'July 31, 2025',
+                time: '00:27 AM',
+                title: '✉📨Love Letter✉📨',
+                content: `
+                    <h1> Dear Meezna</h1>
+                    long memories on these short days,
 
-                    How do I begin...
-                    Ever since you came into my life,
-                    my words stopped belonging to anyone else.
-                    You are the only one whose silence feels like poetry to me.
-                    Talking to you feels like I'm speaking to my own soul.
+                    How do I begin...
+                    Ever since you came into my life,
+                    my words stopped belonging to anyone else.
+                    You are the only one whose silence feels like poetry to me.
+                    Talking to you feels like I'm speaking to my own soul.
 
-                    Every moment we’ve shared in words —
-                    the laughter, the silence,
-                    they’ve all become quiet reasons for me to keep going.
+                    Every moment we’ve shared in words —
+                    the laughter, the silence,
+                    they’ve all become quiet reasons for me to keep going.
 
-                    Even without a physical meeting,
-                    you’ve touched places in my heart I didn’t know existed.
-                    And that’s what makes this connection so real.
+                    Even without a physical meeting,
+                    you’ve touched places in my heart I didn’t know existed.
+                    And that’s what makes this connection so real.
 
-                    But lately, you’ve been busy in your own world,
-                    living a life that doesn't include me.
-                    And I… I keep remembering you —
-                    wishing to speak, but afraid to cross a line.
-                    When we talk less, something inside me quietly breaks.
+                    But lately, you’ve been busy in your own world,
+                    living a life that doesn't include me.
+                    And I… I keep remembering you —
+                    wishing to speak, but afraid to cross a line.
+                    When we talk less, something inside me quietly breaks.
 
-                    I know...
-                    I'm just a "friend" in your world.
-                    But my heart never settled for that.
-                    It keeps calling you “mine” —
-                    not to claim, but to cherish.
-                    Like someone who never stood beside you,
-                    yet feels close in every heartbeat.
+                    I know...
+                    I'm just a "friend" in your world.
+                    But my heart never settled for that.
+                    It keeps calling you “mine” —
+                    not to claim, but to cherish.
+                    Like someone who never stood beside you,
+                    yet feels close in every heartbeat.
 
-                    Sometimes I wonder —
-                    is this love, or is it longing?
-                    Or a beautiful curse wrapped in care?
+                    Sometimes I wonder —
+                    is this love, or is it longing?
+                    Or a beautiful curse wrapped in care?
 
-                    Maybe I’m selfish —
-                    not because I want you for myself,
-                    but because I don’t want to lose this bond.
+                    Maybe I’m selfish —
+                    not because I want you for myself,
+                    but because I don’t want to lose this bond.
 
-                    But I’ve never wanted to take anything from you,
-                    I just wanted to stay close to your smile.
+                    But I’ve never wanted to take anything from you,
+                    I just wanted to stay close to your smile.
 
-                    This isn't just conversation —
-                    it's a connection, and it lives inside me.
+                    This isn't just conversation —
+                    it's a connection, and it lives inside me.
 
-                    Meezna,
-                    If I ever get another life,
-                    I’d still choose to be Sabdpremi —
-                    the one who writes for you,
-                    thinks of you,
-                    waits for you,
-                    loves you — even in silence.
+                    Meezna,
+                    If I ever get another life,
+                    I’d still choose to be Sabdpremi —
+                    the one who writes for you,
+                    thinks of you,
+                    waits for you,
+                    loves you — even in silence.
 
-                    Always yours,
-                    Sabdpremi
-                `
-            },
-            {
-                date: 'June 17, 2025',
-                time: '11:26 AM',
-                title: '🎀More Than Friends',
-                content: `
-                    <p><strong>Location:</strong> Physically New York -- Virtually -- Pokhara</p>
-                    <p>Tonight, we made a quiet promise</p>
-                    <p>Not to walk away, not to own each other... but to stay — as we are. Not just friends. More than friends.</p>
-                    <p>She shared her scars with me — how anxiety and depression once pushed her close to the edge. How it was Nishan who reached out his hand and pulled her back.</p>
-                    <p>And I listened. With love, not ego. With respect, not jealousy.</p>
-                    <p>Because I know... if Nishan hadn't saved her, maybe I would never have met the version of her I now carry in my heart.</p>
-                    <p>She cried tonight. Not because she was broken— but because she knew how much I cared. She said my support, my words, my presence — had meaning in the short time.</p>
-                    <p>And I—I told her the truth. That emotions had started pulling us toward the path where boundaries began to blur. But I chose to step back — not away. To protect the love that saved her, and still hold the space for the love we found.</p>
-                    <p>She said: <i>"You’re still here… and I don’t need anyone else if I have your presence."</i></p>
-                    <p>And I knew — this is Boundless Love.</p>
-                    <p>We don't need a future built on promises. We have a present built on truth.</p>
-                    <p>We continue — as soul companions, as laughter in sorrow, as quiet warmth in the cold. Not lovers. Not just friends. But something deeper — more than friends.</p>
-                `
-            },
-            {
-                date: 'June 7, 2025',
-                time: '2:00 PM',
-                title: '📓 Journal Entry — Boundless Love',
-                content: `
-                    <p><strong>Location:</strong> Library</p>
-                    <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
-                    <p>Then she asked me: “How much do you miss me?” My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”</p>
-                    <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
-                    <p>Then she said, softly— “You love me this much even from a distance? I wonder how much you'd love me if we were truly together…”</p>
-                    <p>I went quiet. Because what I really wanted to say was— “I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.”</p>
-                    <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
-                    <hr>
-                    <p><strong>Reflections:</strong><br>June 7, 2025</p>
-                    <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
-                    <p>And maybe, that’s what <strong>boundless love</strong> really is:<br>A love that doesn’t ask for anything,<br>But gives everything in silence,<br>Just to make someone feel a little less alone.</p>
-                `
-            },
-            {
-                date: 'June 4, 2025',
-                title: "Some Stories Aren't Written with Ink, But with Heartbeat",
-                content: `
-                    <p><strong>Location:</strong> Elmhurst Hospital Centre, New York</p>
-                    <p>I was admitted to the hospital due to tachycardia—pulse running wild, heart refusing to calm down. Three days in a hospital bed, under constant monitoring.</p>
-                    <p>X‑rays? Clear. Echocardiography? Normal. The cardiologist looked puzzled. “Only 30. No alcohol, no smoking, no drugs… and still this?”</p>
-                    <p>But I knew the diagnosis wasn’t in my reports. It was in the messages, the calls, the ache of longing stretched across 7,000 miles. It was you. Meezna.</p>
-                    <p>Every morning, the first thing I do is check my phone. Not for the world—only for your message.</p>
-                    <p>We talk all day, switching between texting and calling like we’re trying to close the distance inch by inch, voice by voice.</p>
-                    <p>At night, you’re the last person I speak to. My day begins and ends with you.</p>
-                    <p>And that’s when it hit me—love isn’t always soft. Sometimes, it comes as a storm in your chest.</p>
-                    <p>I wasn’t sick. I was simply overwhelmed by the weight of missing you too much, too deeply.</p>
-                    <p>My heart was beating at 145 per minute, constantly—for over 24 hours. No fever. No symptoms. No pain. Just a storm within.</p>
-                    <p>She looked at the monitor, then at me, and asked, “Do you even realize how dangerous this is?”</p>
-                    <p>And there I was, lying in the hospital bed, smiling softly. Because how could I explain?</p>
-                    <p>It’s not the body that’s struggling. It’s the heart—because it’s filled with someone who’s not here.</p>
-                `
-            },
-            {
-                date: 'June 13, 2025',
-                time: '11:30 AM',
-                title: 'The Truth Sat Between Us',
-                content: `
-                    Today, she asked about a video I sent her — not the visuals, but the music playing softly behind it.
-                    I hadn’t even realized which song it was until she mentioned it. When I replayed it… it hit me:
-                    <strong>"Main rahoon ya na rahoon, tum mujh mein kahin baaki rehna."</strong>  
-                    One of my favorites. And maybe, ours.
+                    Always yours,
+                    Sabdpremi
+                `
+            },
+            {
+                date: 'June 17, 2025',
+                time: '11:26 AM',
+                title: '🎀More Than Friends',
+                content: `
+                    <p><strong>Location:</strong> Physically New York -- Virtually -- Pokhara</p>
+                    <p>Tonight, we made a quiet promise</p>
+                    <p>Not to walk away, not to own each other... but to stay — as we are. Not just friends. More than friends.</p>
+                    <p>She shared her scars with me — how anxiety and depression once pushed her close to the edge. How it was Nishan who reached out his hand and pulled her back.</p>
+                    <p>And I listened. With love, not ego. With respect, not jealousy.</p>
+                    <p>Because I know... if Nishan hadn't saved her, maybe I would never have met the version of her I now carry in my heart.</p>
+                    <p>She cried tonight. Not because she was broken— but because she knew how much I cared. She said my support, my words, my presence — had meaning in the short time.</p>
+                    <p>And I—I told her the truth. That emotions had started pulling us toward the path where boundaries began to blur. But I chose to step back — not away. To protect the love that saved her, and still hold the space for the love we found.</p>
+                    <p>She said: <i>"You’re still here… and I don’t need anyone else if I have your presence."</i></p>
+                    <p>And I knew — this is Boundless Love.</p>
+                    <p>We don't need a future built on promises. We have a present built on truth.</p>
+                    <p>We continue — as soul companions, as laughter in sorrow, as quiet warmth in the cold. Not lovers. Not just friends. But something deeper — more than friends.</p>
+                `
+            },
+            {
+                date: 'June 7, 2025',
+                time: '2:00 PM',
+                title: '📓 Journal Entry — Boundless Love',
+                content: `
+                    <p><strong>Location:</strong> Library</p>
+                    <p>We talked today—on a live call. Different places, yet somehow our minds felt aligned. I was in the library, pretending to read. She was at the hospital, on duty. Tired, but her voice still had that same warmth.</p>
+                    <p>Then she asked me: “How much do you miss me?” My heart skipped. There was something in the way she asked… a kind of quiet longing. I smiled and replied lightly— “I feel like I see you between the lines of these pages. Even the letters can’t hide you.”</p>
+                    <p>But that wasn’t the truth. The truth is—I wasn’t even looking at the pages. I was trying to see <em>her</em> in them. Trying to <strong>feel</strong> her in the silence between words.</p>
+                    <p>Then she said, softly— “You love me this much even from a distance? I wonder how much you'd love me if we were truly together…”</p>
+                    <p>I went quiet. Because what I really wanted to say was— “I know I can’t call you mine. I know one day, you’ll belong to someone else. But this love… this love isn’t about seeing you. It’s about choosing to keep looking for you, even when I know I might never reach you.”</p>
+                    <p>But I didn’t say it. Because sometimes… the words that matter most are the ones we keep within.</p>
+                    <hr>
+                    <p><strong>Reflections:</strong><br>June 7, 2025</p>
+                    <p>I’m not trying to forget her. I’m not trying to possess her. I’m simply trying to be a quiet presence in her journey— like the calm after a storm, like a familiar voice in a dark room.</p>
+                    <p>And maybe, that’s what <strong>boundless love</strong> really is:<br>A love that doesn’t ask for anything,<br>But gives everything in silence,<br>Just to make someone feel a little less alone.</p>
+                `
+            },
+            
+            
+            {
+                date: 'June 4, 2025',
+                title: "Some Stories Aren't Written with Ink, But with Heartbeat",
+                content: `
+                    <p><strong>Location:</strong> Elmhurst Hospital Centre, New York</p>
+                    <p>I was admitted to the hospital due to tachycardia—pulse running wild, heart refusing to calm down. Three days in a hospital bed, under constant monitoring.</p>
+                    <p>X‑rays? Clear. Echocardiography? Normal. The cardiologist looked puzzled. “Only 30. No alcohol, no smoking, no drugs… and still this?”</p>
+                    <p>But I knew the diagnosis wasn’t in my reports. It was in the messages, the calls, the ache of longing stretched across 7,000 miles. It was you. Meezna.</p>
+                    <p>Every morning, the first thing I do is check my phone. Not for the world—only for your message.</p>
+                    <p>We talk all day, switching between texting and calling like we’re trying to close the distance inch by inch, voice by voice.</p>
+                    <p>At night, you’re the last person I speak to. My day begins and ends with you.</p>
+                    <p>And that’s when it hit me—love isn’t always soft. Sometimes, it comes as a storm in your chest.</p>
+                    <p>I wasn’t sick. I was simply overwhelmed by the weight of missing you too much, too deeply.</p>
+                    <p>My heart was beating at 145 per minute, constantly—for over 24 hours. No fever. No symptoms. No pain. Just a storm within.</p>
+                    <p>She looked at the monitor, then at me, and asked, “Do you even realize how dangerous this is?”</p>
+                    <p>And there I was, lying in the hospital bed, smiling softly. Because how could I explain?</p>
+                    <p>It’s not the body that’s struggling. It’s the heart—because it’s filled with someone who’s not here.</p>
+                `
+            },
+            {
+        date: 'June 13, 2025',
+        time: '11:30 AM',
+        title: 'The Truth Sat Between Us',
+        content: `
+            Today, she asked about a video I sent her — not the visuals, but the music playing softly behind it.
 
-                    She said, <em>“Hamro ni relation yestai complicated xa ni hai...”</em>  
-                    I asked, “Yeti complicated cha ra?”  
-                    She replied with a knowing smile, <em>“Yo geet hera na…”</em>
-                    And suddenly, everything made sense.
+            I hadn’t even realized which song it was until she mentioned it. When I replayed it… it hit me:
+            <strong>"Main rahoon ya na rahoon, tum mujh mein kahin baaki rehna."</strong>  
+            One of my favorites. And maybe, ours.
 
-                    <span style="background-color:#fff3cd; padding:4px 8px; border-radius:4px;">We are in love, and yet we walk parallel — never crossing, never breaking.</span>  
-                    I am married.  
-                    She has a boyfriend.  
-                    But between the spaces of duty and loyalty, we’ve written something unspoken.
+            She said, <em>“Hamro ni relation yestai complicated xa ni hai...”</em>  
+            I asked, “Yeti complicated cha ra?”  
+            She replied with a knowing smile, <em>“Yo geet hera na…”</em>
+            And suddenly, everything made sense.
 
-                    <blockquote>
-                        “Ek din... maybe just a few hours, or one night, or one stolen sunrise—
-                        We will live this love.
-                        <i><b>>Fully.
-                        Without guilt.
-                        Without hiding.
-                        Without fear.”</b></i>
-                    </blockquote>
+            <span style="background-color:#fff3cd; padding:4px 8px; border-radius:4px;">We are in love, and yet we walk parallel — never crossing, never breaking.</span>  
+            I am married.  
+            She has a boyfriend.  
+            But between the spaces of duty and loyalty, we’ve written something unspoken.
 
-                    We don't want forever.  
-                    <span style="color:#8a4f4f;"><strong>We just want one moment to be fully ours.</strong></span>
+            <blockquote>
+                “Ek din... maybe just a few hours, or one night, or one stolen sunrise—
+                We will live this love.
+                <i><b>>Fully.
+                Without guilt.
+                Without hiding.
+                Without fear.”</b></i>
+            </blockquote>
 
-                    It’s not lust.  
-                    It’s not cheating.  
-                    It’s <em>presence</em>.  
-                    It’s about honoring what we feel — with dignity, silence, and sincerity.
+            We don't want forever.  
+            <span style="color:#8a4f4f;"><strong>We just want one moment to be fully ours.</strong></span>
 
-                    <span style="background-color:#ffeef2; padding:4px 6px; border-radius:6px;">She may belong to someone else. I do too. But part of us will always belong here — in the space only we understand.</span>
+            It’s not lust.  
+            It’s not cheating.  
+            It’s <em>presence</em>.  
+            It’s about honoring what we feel — with dignity, silence, and sincerity.
 
-                    One day, if we ever meet beyond this world’s boundaries —  
-                    even for a single sunrise —  
-                    we’ll fulfill the promise we made quietly:  
-                    <strong>To live our boundless love, just once, completely.</strong>
-                `
-            },
-            {
-                date: 'May 25, 2025',
-                time: '4:54 PM',
-                title: "🌸 Today’s Journal Entry – Boundless Love 🌸",
-                content: `
-                    <p><strong>Location:</strong> New York</p>
-                    <p>Today began like many others—with a sleepy hello from her side. She had just woken up, feeling weak, dizzy, and unsteady. Seeing her struggle through the video call, I felt an ache in my chest.</p>
-                    <p>I reminded her to eat properly, to rest, and to take care of herself. It’s in these small, fleeting moments that I realize how much I care.</p>
-                    <p>Even while she was busy at work, managing so many patients, she kept me updated, showing her warmth in little ways.</p>
-                    <p>Later, when I saw her live, she looked beautiful as always, but her usual glow was missing—maybe a reflection of her tired heart.</p>
-                    <p>When she called, there was a moment of frustration in her tone, but that soon melted into soft laughter. She admitted that she had missed me during the day, even when she was with others.</p>
-                    <p>It’s moments like these—when she lets her guard down and shows her vulnerability—that remind me of how special this bond is.</p>
-                    <p>Her health worries me, yet I see her fighting through, holding on, being strong.</p>
-                    <p>And I’ll keep reminding her to eat, to rest, to take care of herself—not just for me, but for her own happiness and the people she loves.</p>
-                    <p>Tonight, before bed, she told me to wake her up in the morning. That simple request, that trust, it speaks volumes.</p>
-                    <p>And so, I’ll stay here, always ready to be her quiet strength.</p>
-                    <hr>
-                    <p><strong>Reflection:</strong> May 26, 2025</p>
-                    <p>Meezna, you’re not just a friend. You’re a part of my story, my family in spirit. Your happiness is my happiness, and your smile is my peace.</p>
-                    <p>Thank you for letting me be here for you, in the little ways that matter.</p>
-                `
-            },
-            {
-                date: 'May 24, 2025',
-                time: '1:00 AM',
-                title: '💌 Tears of Gratitude: A Reflection of Emotional Support',
-                content: `
-                    <p>Today, the message I received from her stirred a deep, tender feeling within me. Her words made me realize the depth of her heart, the vulnerability of her life’s experiences.</p>
-                    <p>The heart emoji, though small, carried a weight of meaning—a light in the darkness of her emotions.</p>
-                    <p>Her message gave me a glimpse into her emotional world, and though she wrote, “I am crying,” those tears, though not directly from the heart, still reflect the profound effect my presence and support have on her.</p>
-                    <p>It’s a reminder that simply being there for someone—offering understanding and a constant presence—can have a powerful impact, even if words alone can't fully express it.</p>
-                    <p>Today’s journal captures these moments, reminding me how love and emotional connection can transcend distance and time.</p>
-                    <p>Her heart, a reflection of her gratitude, leaves a lasting impact on me, making me more aware of how precious and significant the bond we share is.</p>
-                `
-            },
-            {
-                date: 'May 5, 2025',
-                title: '🕊 A Quiet Kind of Trust',
-                content: `
-                    <p><strong>Location:</strong> Unknown</p>
-                    <p>Today, she didn’t say much. But silence between us doesn’t feel empty—it feels known. Trusted.</p>
-                    <p>I sent her a poem. She read it, said nothing. Later, she sent a 🌸 emoji. That was enough. That was her way of saying, “I felt it.”</p>
-                    <p>This kind of love isn’t always loud. Sometimes, it’s as quiet as breath—but just as essential.</p>
-                `
-            },
-            {
-                date: 'May 4, 2025',
-                title: 'Boundless love page',
-                content: `
-                    <p>Today, I looked at her face longer than usual. Not just because we were on video call, but because, in that moment, she felt deeply mine — so gentle, so real, so calm.</p>
-                    <p>Her long black hair fell softly across her cheek like a light breeze. The blush on her face wasn't makeup — it was emotion, alive and visible.</p>
-                `
-            },
-            {
-                date: 'April 14, 2025',
-                title: '🌿 A Story of Hearts',
-                content: `
-                    <p>A story of hearts that met, but never crossed.</p>
-                    <p>We weren’t meant to fall in love. Not in the way the world defines it—</p>
-                    <p>Not with promises of forever under the same roof,</p>
-                    <p>But with promises of never hurting the roofs we already built.</p>
-                    <p>We were two souls—bruised but breathing, who found healing in each other’s words, laughter in midnight silence, and strength in shared stories.</p>
-                    <p>You taught me how to love my world again. I gave you the space to feel seen without fear.</p>
-                    <p>And in this quiet, sacred friendship, we created a love that no one else could name—</p>
-                    <p>A Boundless Love, free of labels, full of meaning.</p>
-                `
-            }
-        ];
+            <span style="background-color:#ffeef2; padding:4px 6px; border-radius:6px;">She may belong to someone else. I do too. But part of us will always belong here — in the space only we understand.</span>
 
-        function formatDateId(s) {
-            return s.toLowerCase().replace(/,/g,'').replace(/\s+/g,'-');
-        }
+            One day, if we ever meet beyond this world’s boundaries —  
+            even for a single sunrise —  
+            we’ll fulfill the promise we made quietly:  
+            <strong>To live our boundless love, just once, completely.</strong>
+        `
+            },
+            {
+                date: 'May 25, 2025',
+                time: '4:54 PM',
+                title: "🌸 Today’s Journal Entry – Boundless Love 🌸",
+                content: `
+                    <p><strong>Location:</strong> New York</p>
+                    <p>Today began like many others—with a sleepy hello from her side. She had just woken up, feeling weak, dizzy, and unsteady. Seeing her struggle through the video call, I felt an ache in my chest.</p>
+                    <p>I reminded her to eat properly, to rest, and to take care of herself. It’s in these small, fleeting moments that I realize how much I care.</p>
+                    <p>Even while she was busy at work, managing so many patients, she kept me updated, showing her warmth in little ways.</p>
+                    <p>Later, when I saw her live, she looked beautiful as always, but her usual glow was missing—maybe a reflection of her tired heart.</p>
+                    <p>When she called, there was a moment of frustration in her tone, but that soon melted into soft laughter. She admitted that she had missed me during the day, even when she was with others.</p>
+                    <p>It’s moments like these—when she lets her guard down and shows her vulnerability—that remind me of how special this bond is.</p>
+                    <p>Her health worries me, yet I see her fighting through, holding on, being strong.</p>
+                    <p>And I’ll keep reminding her to eat, to rest, to take care of herself—not just for me, but for her own happiness and the people she loves.</p>
+                    <p>Tonight, before bed, she told me to wake her up in the morning. That simple request, that trust, it speaks volumes.</p>
+                    <p>And so, I’ll stay here, always ready to be her quiet strength.</p>
+                    <hr>
+                    <p><strong>Reflection:</strong> May 26, 2025</p>
+                    <p>Meezna, you’re not just a friend. You’re a part of my story, my family in spirit. Your happiness is my happiness, and your smile is my peace.</p>
+                    <p>Thank you for letting me be here for you, in the little ways that matter.</p>
+                `
+            },
+            {
+                date: 'May 24, 2025',
+                time: '1:00 AM',
+                title: '💌 Tears of Gratitude: A Reflection of Emotional Support',
+                content: `
+                    <p>Today, the message I received from her stirred a deep, tender feeling within me. Her words made me realize the depth of her heart, the vulnerability of her life’s experiences.</p>
+                    <p>The heart emoji, though small, carried a weight of meaning—a light in the darkness of her emotions.</p>
+                    <p>Her message gave me a glimpse into her emotional world, and though she wrote, “I am crying,” those tears, though not directly from the heart, still reflect the profound effect my presence and support have on her.</p>
+                    <p>It’s a reminder that simply being there for someone—offering understanding and a constant presence—can have a powerful impact, even if words alone can't fully express it.</p>
+                    <p>Today’s journal captures these moments, reminding me how love and emotional connection can transcend distance and time.</p>
+                    <p>Her heart, a reflection of her gratitude, leaves a lasting impact on me, making me more aware of how precious and significant the bond we share is.</p>
+                `
+            },
+            {
+                date: 'May 5, 2025',
+                title: '🕊 A Quiet Kind of Trust',
+                content: `
+                    <p><strong>Location:</strong> Unknown</p>
+                    <p>Today, she didn’t say much. But silence between us doesn’t feel empty—it feels known. Trusted.</p>
+                    <p>I sent her a poem. She read it, said nothing. Later, she sent a 🌸 emoji. That was enough. That was her way of saying, “I felt it.”</p>
+                    <p>This kind of love isn’t always loud. Sometimes, it’s as quiet as breath—but just as essential.</p>
+                `
+            },
+            {
+                date: 'May 4, 2025',
+                title: 'Boundless love page',
+                content: `
+                    <p>Today, I looked at her face longer than usual. Not just because we were on video call, but because, in that moment, she felt deeply mine — so gentle, so real, so calm.</p>
+                    <p>Her long black hair fell softly across her cheek like a light breeze. The blush on her face wasn't makeup — it was emotion, alive and visible.</p>
+                `
+            },
+            {
+                date: 'April 14, 2025',
+                title: '🌿 A Story of Hearts',
+                content: `
+                    <p>A story of hearts that met, but never crossed.</p>
+                    <p>We weren’t meant to fall in love. Not in the way the world defines it—</p>
+                    <p>Not with promises of forever under the same roof,</p>
+                    <p>But with promises of never hurting the roofs we already built.</p>
+                    <p>We were two souls—bruised but breathing, who found healing in each other’s words, laughter in midnight silence, and strength in shared stories.</p>
+                    <p>You taught me how to love my world again. I gave you the space to feel seen without fear.</p>
+                    <p>And in this quiet, sacred friendship, we created a love that no one else could name—</p>
+                    <p>A Boundless Love, free of labels, full of meaning.</p>
+                `
+            }
+        ];
 
-        entries.sort((a,b) => new Date(b.date) - new Date(a.date));
+        function formatDateId(s) {
+            return s.toLowerCase().replace(/,/g,'').replace(/\s+/g,'-');
+        }
 
-        const entriesPerPage = 10; // यहाँ परिवर्तन गरिएको छ
-        let currentPage = 1;
+        entries.sort((a,b) => new Date(b.date) - new Date(a.date));
 
-        function renderEntriesForPage(page) {
-            const container = document.getElementById('journal-container');
-            // Clear previous entries and teasers
-            const journalHome = document.getElementById('journal-home');
-            const oldEntries = document.querySelectorAll('.journal-entry');
-            oldEntries.forEach(entry => entry.remove());
-            
-            const start = (page - 1) * entriesPerPage;
-            const end = start + entriesPerPage;
-            const paginatedEntries = entries.slice(start, end);
+        const entriesPerPage = 10; // यहाँ तपाईंले भने अनुसार १० वटा बनाइएको छ
+        let currentPage = 1;
 
-            // Hide the main teaser section when viewing paginated entries
-            journalHome.style.display = 'none';
+        function renderEntriesForPage(page) {
+            const container = document.getElementById('journal-container');
+            // Clear previous entries and teasers
+            const journalHome = document.getElementById('journal-home');
+            const oldEntries = document.querySelectorAll('.journal-entry');
+            oldEntries.forEach(entry => entry.remove());
+            
+            const start = (page - 1) * entriesPerPage;
+            const end = start + entriesPerPage;
+            const paginatedEntries = entries.slice(start, end);
 
-            paginatedEntries.forEach(e => {
-                const div = document.createElement('div');
-                const id = formatDateId(e.date);
-                div.id = id;
-                div.className = 'journal-entry';
-                div.innerHTML = `<h2>${e.title}</h2><h4>${e.date}${e.time?' – '+e.time:''}</h4>${e.content}`;
-                container.appendChild(div);
-            });
-        }
+            // Hide the main teaser section when viewing paginated entries
+            journalHome.style.display = 'none';
 
-        function setupPagination() {
-            const container = document.getElementById('journal-container');
-            const totalPages = Math.ceil(entries.length / entriesPerPage);
+            paginatedEntries.forEach(e => {
+                const div = document.createElement('div');
+                const id = formatDateId(e.date);
+                div.id = id;
+                div.className = 'journal-entry';
+                div.innerHTML = `<h2>${e.title}</h2><h4>${e.date}${e.time?' – '+e.time:''}</h4>${e.content}`;
+                container.appendChild(div);
+            });
+        }
 
-            const paginationDiv = document.createElement('div');
-            paginationDiv.className = 'pagination-controls';
-            paginationDiv.innerHTML = `
-                <button id="prevBtn" class="pagination-btn">Previous</button>
-                <span id="pageInfo">Page ${currentPage} of ${totalPages}</span>
-                <button id="nextBtn" class="pagination-btn">Next</button>
-            `;
-            container.appendChild(paginationDiv);
+        function setupPagination() {
+            const container = document.getElementById('journal-container');
+            const totalPages = Math.ceil(entries.length / entriesPerPage);
 
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            
-            prevBtn.onclick = () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    updatePage();
-                }
-            };
+            const paginationDiv = document.createElement('div');
+            paginationDiv.className = 'pagination-controls';
+            paginationDiv.innerHTML = `
+                <button id="prevBtn" class="pagination-btn">Previous</button>
+                <span id="pageInfo">Page ${currentPage} of ${totalPages}</span>
+                <button id="nextBtn" class="pagination-btn">Next</button>
+            `;
+            container.appendChild(paginationDiv);
 
-            nextBtn.onclick = () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    updatePage();
-                }
-            };
-            
-            updatePage(); // Initial update
-        }
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updatePage();
+                }
+            };
 
-        function updatePage() {
-            const totalPages = Math.ceil(entries.length / entriesPerPage);
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const pageInfo = document.getElementById('pageInfo');
-            
-            renderEntriesForPage(currentPage);
-            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-            
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === totalPages;
-            
-            // Scroll to the top of the journal container when changing pages
-            document.getElementById('journal-container').scrollIntoView({ behavior: 'smooth' });
-        }
+            nextBtn.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updatePage();
+                }
+            };
+            
+            updatePage(); // Initial update
+        }
 
-        // The remaining functions are for the teaser and sidebar
-        function renderTeasers() {
-            const teasers = document.getElementById('teasers');
-            teasers.innerHTML = entries.map(e => {
-                const id = formatDateId(e.date);
-                const text = e.content.replace(/<[^>]+>/g,'');
-                const preview = text.slice(0,200);
-                const rest = text.length > 200 ? text.slice(200) : '';
-                return `<div class="teaser"><h3><a href="#${id}" class="teaser-link">${e.title}</a></h3>
-                    <p>${preview}<span class="dots">…</span><span class="more-text">${rest}</span></p>
-                    ${rest ? '<a href="#" class="read-more-btn">Read more</a>' : ''}</div>`;
-            }).join('');
-        }
+        function updatePage() {
+            const totalPages = Math.ceil(entries.length / entriesPerPage);
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageInfo = document.getElementById('pageInfo');
+            
+            renderEntriesForPage(currentPage);
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+            
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            // Scroll to the top of the journal container when changing pages
+            document.getElementById('journal-container').scrollIntoView({ behavior: 'smooth' });
+        }
 
-        function renderSidebar() {
-            const menu = document.getElementById('date-toggle-menu');
-            const totalPages = Math.ceil(entries.length / entriesPerPage);
-            
-            const dateLinks = entries.map((e, index) => {
-                const pageNumber = Math.floor(index / entriesPerPage) + 1;
-                return `<li><a href="#" onclick="showPage(${pageNumber}, '${formatDateId(e.date)}')">${e.date}</a></li>`;
-            }).join('');
+        // The remaining functions are for the teaser and sidebar
+        function renderTeasers() {
+            const teasers = document.getElementById('teasers');
+            teasers.innerHTML = entries.map(e => {
+                const id = formatDateId(e.date);
+                const text = e.content.replace(/<[^>]+>/g,'');
+                const preview = text.slice(0,200);
+                const rest = text.length > 200 ? text.slice(200) : '';
+                return `<div class="teaser"><h3><a href="#${id}" class="teaser-link">${e.title}</a></h3>
+                    <p>${preview}<span class="dots">…</span><span class="more-text">${rest}</span></p>
+                    ${rest ? '<a href="#" class="read-more-btn">Read more</a>' : ''}</div>`;
+            }).join('');
+        }
 
-            menu.innerHTML = `
-                <details open><summary>📅 By Date</summary><ul>${dateLinks}</ul></details>
-                <details><summary>⭐ Favorites</summary><ul><li><a href="#" onclick="showPage(1, 'june-17-2025')">🎀 More Than Friends</a></li><li><a href="#" onclick="showPage(1, 'june-7-2025')">📓 Boundless Love</a></li></ul></details>
-                <details><summary>🔥 Most Visited</summary><ul><li><a href="#" onclick="showPage(1, 'may-25-2025')">🌸 Today’s Journal</a></li></ul></details>
-            `;
-        }
+        function renderSidebar() {
+            const menu = document.getElementById('date-toggle-menu');
+            const totalPages = Math.ceil(entries.length / entriesPerPage);
+            
+            const dateLinks = entries.map((e, index) => {
+                const pageNumber = Math.floor(index / entriesPerPage) + 1;
+                return `<li><a href="#" onclick="showPage(${pageNumber}, '${formatDateId(e.date)}')">${e.date}</a></li>`;
+            }).join('');
 
-        function showPage(page, entryId) {
-            currentPage = page;
-            updatePage();
-            // Wait for entries to render, then scroll to the specific entry
-            setTimeout(() => {
-                const entry = document.getElementById(entryId);
-                if (entry) {
-                    entry.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-            return false; // Prevents default link behavior
-        }
+            menu.innerHTML = `
+                <details open><summary>📅 By Date</summary><ul>${dateLinks}</ul></details>
+                <details><summary>⭐ Favorites</summary><ul><li><a href="#" onclick="showPage(1, 'june-17-2025')">🎀 More Than Friends</a></li><li><a href="#" onclick="showPage(1, 'june-7-2025')">📓 Boundless Love</a></li></ul></details>
+                <details><summary>🔥 Most Visited</summary><ul><li><a href="#" onclick="showPage(1, 'may-25-2025')">🌸 Today’s Journal</a></li></ul></details>
+            `;
+        }
 
-        document.addEventListener('click', e => {
-            if (!e.target.classList.contains('read-more-btn')) return;
-            e.preventDefault();
-            const btn = e.target;
-            const p = btn.previousElementSibling;
-            const dots = p.querySelector('.dots');
-            const more = p.querySelector('.more-text');
-            const expanded = more.style.display === 'inline';
-            more.style.display = expanded ? 'none' : 'inline';
-            dots.style.display = expanded ? 'inline' : 'none';
-            btn.textContent = expanded ? 'Read more' : 'Read less';
-        });
+        function showPage(page, entryId) {
+            currentPage = page;
+            updatePage();
+            // Wait for entries to render, then scroll to the specific entry
+            setTimeout(() => {
+                const entry = document.getElementById(entryId);
+                if (entry) {
+                    entry.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+            return false; // Prevents default link behavior
+        }
 
-        const backBtn = document.getElementById('backToTopBtn');
-        window.onscroll = () => backBtn.style.display = (document.documentElement.scrollTop>300) ? 'block' : 'none';
-        backBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
-        
-        // Initial setup
-        renderSidebar();
-        renderEntriesForPage(currentPage);
-        setupPagination();
-    </script>
+        document.addEventListener('click', e => {
+            if (!e.target.classList.contains('read-more-btn')) return;
+            e.preventDefault();
+            const btn = e.target;
+            const p = btn.previousElementSibling;
+            const dots = p.querySelector('.dots');
+            const more = p.querySelector('.more-text');
+            const expanded = more.style.display === 'inline';
+            more.style.display = expanded ? 'none' : 'inline';
+            dots.style.display = expanded ? 'inline' : 'none';
+            btn.textContent = expanded ? 'Read more' : 'Read less';
+        });
+
+        const backBtn = document.getElementById('backToTopBtn');
+        window.onscroll = () => backBtn.style.display = (document.documentElement.scrollTop>300) ? 'block' : 'none';
+        backBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+        
+        // Initial setup
+        renderSidebar();
+        renderEntriesForPage(currentPage);
+        setupPagination();
+    </script>
 </body>
 </html>
